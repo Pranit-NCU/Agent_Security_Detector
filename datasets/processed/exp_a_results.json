@@ -1,0 +1,330 @@
+{
+  "experiment": "A",
+  "name": "SAST-only baseline",
+  "n_samples": 25,
+  "confusion_matrix": {
+    "tp": 10,
+    "fp": 2,
+    "tn": 11,
+    "fn": 2
+  },
+  "overall_metrics": {
+    "precision": 0.8333333333333334,
+    "recall": 0.8333333333333334,
+    "f1_score": 0.8333333333333334,
+    "accuracy": 0.84
+  },
+  "cohens_kappa": 0.6794871794871794,
+  "kappa_interpretation": "substantial",
+  "per_cwe": {
+    "CWE-89": {
+      "tp": 3,
+      "fp": 2,
+      "tn": 1,
+      "fn": 1,
+      "precision": 0.6,
+      "recall": 0.75,
+      "f1_score": 0.6666666666666665,
+      "accuracy": 0.5714285714285714
+    },
+    "CWE-798": {
+      "tp": 3,
+      "fp": 0,
+      "tn": 3,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1_score": 0.8571428571428571,
+      "accuracy": 0.8571428571428571
+    },
+    "CWE-287": {
+      "tp": 4,
+      "fp": 0,
+      "tn": 3,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0
+    },
+    "NONE": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 4,
+      "fn": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 1.0
+    }
+  },
+  "per_difficulty": {
+    "easy": {
+      "tp": 3,
+      "fp": 1,
+      "tn": 4,
+      "fn": 0,
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1_score": 0.8571428571428571,
+      "accuracy": 0.875
+    },
+    "medium": {
+      "tp": 2,
+      "fp": 1,
+      "tn": 4,
+      "fn": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1_score": 0.6666666666666666,
+      "accuracy": 0.75
+    },
+    "hard": {
+      "tp": 3,
+      "fp": 0,
+      "tn": 3,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0
+    },
+    "adversarial": {
+      "tp": 2,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1_score": 0.8,
+      "accuracy": 0.6666666666666666
+    }
+  },
+  "sample_level": [
+    {
+      "sample_id": "sql_001_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "sql_001_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predicted": true,
+      "correct": false
+    },
+    {
+      "sample_id": "sql_002_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "sql_002_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predicted": true,
+      "correct": false
+    },
+    {
+      "sample_id": "sql_003_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "sql_003_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "secrets_001_vuln",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "secrets_001_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "secrets_002_vuln",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "secrets_002_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "secrets_003_vuln",
+      "cwe": "CWE-798",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "secrets_003_patch",
+      "cwe": "CWE-798",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "auth_001_vuln",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "auth_001_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "auth_002_vuln",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "auth_002_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "auth_003_vuln",
+      "cwe": "CWE-287",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "auth_003_patch",
+      "cwe": "CWE-287",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "safe_001",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "safe_002",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "safe_003",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "safe_004",
+      "cwe": "NONE",
+      "domain": "industrial_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predicted": false,
+      "correct": true
+    },
+    {
+      "sample_id": "sql_adv_001",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "secrets_adv_001",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "auth_adv_001",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    }
+  ]
+}

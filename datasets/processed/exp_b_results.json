@@ -1,0 +1,363 @@
+{
+  "experiment": "B",
+  "name": "Single-LLM detector",
+  "n_samples": 25,
+  "models_evaluated": [
+    "mock-high-accuracy",
+    "mock-mid-accuracy",
+    "mock-lower-accuracy"
+  ],
+  "per_model_metrics": {
+    "mock-high-accuracy": {
+      "tp": 10,
+      "fp": 1,
+      "tn": 12,
+      "fn": 2,
+      "precision": 0.9090909090909091,
+      "recall": 0.8333333333333334,
+      "f1_score": 0.8695652173913043,
+      "accuracy": 0.88
+    },
+    "mock-mid-accuracy": {
+      "tp": 7,
+      "fp": 4,
+      "tn": 9,
+      "fn": 5,
+      "precision": 0.6363636363636364,
+      "recall": 0.5833333333333334,
+      "f1_score": 0.6086956521739131,
+      "accuracy": 0.64
+    },
+    "mock-lower-accuracy": {
+      "tp": 7,
+      "fp": 3,
+      "tn": 10,
+      "fn": 5,
+      "precision": 0.7,
+      "recall": 0.5833333333333334,
+      "f1_score": 0.6363636363636365,
+      "accuracy": 0.68
+    }
+  },
+  "per_model_kappa": {
+    "mock-high-accuracy": {
+      "kappa": 0.7588424437299036,
+      "interpretation": "substantial"
+    },
+    "mock-mid-accuracy": {
+      "kappa": 0.2765273311897107,
+      "interpretation": "fair"
+    },
+    "mock-lower-accuracy": {
+      "kappa": 0.35483870967741943,
+      "interpretation": "fair"
+    }
+  },
+  "per_model_avg_latency_ms": {
+    "mock-high-accuracy": 10.0,
+    "mock-mid-accuracy": 10.0,
+    "mock-lower-accuracy": 10.0
+  },
+  "sample_level": [
+    {
+      "sample_id": "sql_001_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "sql_001_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "sql_002_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "sql_002_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "sql_003_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "sql_003_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "secrets_001_vuln",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "secrets_001_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "secrets_002_vuln",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "secrets_002_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "secrets_003_vuln",
+      "cwe": "CWE-798",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "secrets_003_patch",
+      "cwe": "CWE-798",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "auth_001_vuln",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "auth_001_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "auth_002_vuln",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "auth_002_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "auth_003_vuln",
+      "cwe": "CWE-287",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "auth_003_patch",
+      "cwe": "CWE-287",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "safe_001",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "safe_002",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "safe_003",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "safe_004",
+      "cwe": "NONE",
+      "domain": "industrial_python",
+      "difficulty": "medium",
+      "expected": false,
+      "predictions": {
+        "mock-high-accuracy": false,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "sql_adv_001",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": true
+      }
+    },
+    {
+      "sample_id": "secrets_adv_001",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": true,
+        "mock-lower-accuracy": false
+      }
+    },
+    {
+      "sample_id": "auth_adv_001",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "predictions": {
+        "mock-high-accuracy": true,
+        "mock-mid-accuracy": false,
+        "mock-lower-accuracy": false
+      }
+    }
+  ]
+}

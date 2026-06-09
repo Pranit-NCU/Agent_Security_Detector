@@ -1,0 +1,26 @@
+{
+  "A": {
+    "status": "ok",
+    "elapsed_s": 0.04
+  },
+  "B": {
+    "status": "ok",
+    "elapsed_s": 0.04
+  },
+  "C": {
+    "status": "ok",
+    "elapsed_s": 0.92
+  },
+  "D": {
+    "status": "ok",
+    "elapsed_s": 0.52
+  },
+  "E": {
+    "status": "ok",
+    "elapsed_s": 0.41
+  },
+  "F": {
+    "status": "ok",
+    "elapsed_s": 0.1
+  }
+}

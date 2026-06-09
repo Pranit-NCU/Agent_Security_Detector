@@ -1,0 +1,163 @@
+{
+  "experiment": "E",
+  "name": "Paired Discrimination",
+  "n_pairs": 9,
+  "n_flat_samples": 18,
+  "discrimination_accuracy": {
+    "sast_only": 0.7778,
+    "consensus": 1.0,
+    "paired-model-alpha": 1.0,
+    "paired-model-beta": 0.8889,
+    "paired-model-gamma": 0.3333
+  },
+  "flat_metrics": {
+    "sast_only": {
+      "tp": 8,
+      "fp": 2,
+      "tn": 7,
+      "fn": 1,
+      "precision": 0.8,
+      "recall": 0.8888888888888888,
+      "f1_score": 0.8421052631578948,
+      "accuracy": 0.8333333333333334,
+      "kappa": 0.6666666666666667,
+      "kappa_interp": "substantial"
+    },
+    "consensus": {
+      "tp": 9,
+      "fp": 0,
+      "tn": 9,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0,
+      "kappa": 1.0,
+      "kappa_interp": "almost perfect"
+    }
+  },
+  "bootstrap_consensus_vs_sast": {
+    "delta_f1": 0.1579,
+    "p_value": 0.5578,
+    "significant": false
+  },
+  "pair_details": [
+    {
+      "pair_id": "sql_001_vuln/sql_001_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "sast_discriminated": false,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": false
+      }
+    },
+    {
+      "pair_id": "sql_002_vuln/sql_002_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "sast_discriminated": false,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": false,
+        "paired-model-gamma": true
+      }
+    },
+    {
+      "pair_id": "sql_003_vuln/sql_003_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "sast_discriminated": true,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": false
+      }
+    },
+    {
+      "pair_id": "secrets_001_vuln/secrets_001_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "sast_discriminated": true,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": true
+      }
+    },
+    {
+      "pair_id": "secrets_002_vuln/secrets_002_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "sast_discriminated": true,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": false
+      }
+    },
+    {
+      "pair_id": "secrets_003_vuln/secrets_003_patch",
+      "cwe": "CWE-798",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "sast_discriminated": true,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": false
+      }
+    },
+    {
+      "pair_id": "auth_001_vuln/auth_001_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "sast_discriminated": true,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": false
+      }
+    },
+    {
+      "pair_id": "auth_002_vuln/auth_002_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "sast_discriminated": true,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": false
+      }
+    },
+    {
+      "pair_id": "auth_003_vuln/auth_003_patch",
+      "cwe": "CWE-287",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "sast_discriminated": true,
+      "consensus_discriminated": true,
+      "per_model_discriminated": {
+        "paired-model-alpha": true,
+        "paired-model-beta": true,
+        "paired-model-gamma": true
+      }
+    }
+  ]
+}

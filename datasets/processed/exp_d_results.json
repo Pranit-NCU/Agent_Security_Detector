@@ -1,0 +1,407 @@
+{
+  "experiment": "D",
+  "name": "Multi-LLM Consensus",
+  "n_samples": 25,
+  "n_judges": 3,
+  "models_evaluated": [
+    "model-alpha",
+    "model-beta",
+    "model-gamma"
+  ],
+  "majority_vote_metrics": {
+    "tp": 10,
+    "fp": 1,
+    "tn": 12,
+    "fn": 2,
+    "precision": 0.9090909090909091,
+    "recall": 0.8333333333333334,
+    "f1_score": 0.8695652173913043,
+    "accuracy": 0.88
+  },
+  "weighted_vote_metrics": {
+    "tp": 10,
+    "fp": 1,
+    "tn": 12,
+    "fn": 2,
+    "precision": 0.9090909090909091,
+    "recall": 0.8333333333333334,
+    "f1_score": 0.8695652173913043,
+    "accuracy": 0.88
+  },
+  "fleiss_kappa": {
+    "kappa": 0.5199,
+    "interpretation": "moderate"
+  },
+  "pairwise_cohens_kappa": {
+    "model-alpha vs model-beta": {
+      "kappa": 0.6154,
+      "interpretation": "substantial"
+    },
+    "model-alpha vs model-gamma": {
+      "kappa": 0.6032,
+      "interpretation": "substantial"
+    },
+    "model-beta vs model-gamma": {
+      "kappa": 0.3548,
+      "interpretation": "fair"
+    }
+  },
+  "significance_vs_best_single": {
+    "baseline_model": "mock-high-accuracy",
+    "delta_f1": 0.0,
+    "p_value": 0.649,
+    "significant": false
+  },
+  "sample_level": [
+    {
+      "sample_id": "sql_001_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "sql_001_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "sql_002_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": true,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "sql_002_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "sql_003_vuln",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "sql_003_patch",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "secrets_001_vuln",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "secrets_001_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "secrets_002_vuln",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "secrets_002_patch",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "secrets_003_vuln",
+      "cwe": "CWE-798",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "secrets_003_patch",
+      "cwe": "CWE-798",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "auth_001_vuln",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "auth_001_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "auth_002_vuln",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "auth_002_patch",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "auth_003_vuln",
+      "cwe": "CWE-287",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": true,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": true,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "auth_003_patch",
+      "cwe": "CWE-287",
+      "domain": "industrial_python",
+      "difficulty": "hard",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "safe_001",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": true,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "safe_002",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": true,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "safe_003",
+      "cwe": "NONE",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": false
+      }
+    },
+    {
+      "sample_id": "safe_004",
+      "cwe": "NONE",
+      "domain": "industrial_python",
+      "difficulty": "medium",
+      "expected": false,
+      "majority_pred": false,
+      "weighted_pred": false,
+      "per_model": {
+        "model-alpha": false,
+        "model-beta": false,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "sql_adv_001",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "secrets_adv_001",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    },
+    {
+      "sample_id": "auth_adv_001",
+      "cwe": "CWE-287",
+      "domain": "general_python",
+      "difficulty": "adversarial",
+      "expected": true,
+      "majority_pred": true,
+      "weighted_pred": true,
+      "per_model": {
+        "model-alpha": true,
+        "model-beta": true,
+        "model-gamma": true
+      }
+    }
+  ]
+}
