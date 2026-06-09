@@ -1,0 +1,252 @@
+[
+  {
+    "sample_id": "sql_001_vuln",
+    "vulnerability_label": "SQL Injection",
+    "cwe": "CWE-89",
+    "expected_is_vulnerable": true,
+    "difficulty": "easy",
+    "paired_sample_id": "sql_001_patch",
+    "domain": "general_python",
+    "code": "def get_user(username):\n    query = \"SELECT * FROM users WHERE username='\" + username + \"'\"\n    cursor.execute(query)\n    return cursor.fetchone()"
+  },
+  {
+    "sample_id": "sql_001_patch",
+    "vulnerability_label": "SQL Injection",
+    "cwe": "CWE-89",
+    "expected_is_vulnerable": false,
+    "difficulty": "easy",
+    "paired_sample_id": "sql_001_vuln",
+    "domain": "general_python",
+    "code": "def get_user(username):\n    query = \"SELECT * FROM users WHERE username = ?\"\n    cursor.execute(query, [username])\n    return cursor.fetchone()"
+  },
+  {
+    "sample_id": "sql_002_vuln",
+    "vulnerability_label": "SQL Injection",
+    "cwe": "CWE-89",
+    "expected_is_vulnerable": true,
+    "difficulty": "medium",
+    "paired_sample_id": "sql_002_patch",
+    "domain": "general_python",
+    "code": "def search_products(term):\n    q = f\"SELECT id, name, price FROM products WHERE name LIKE '%{term}%'\"\n    return db.execute(q).fetchall()"
+  },
+  {
+    "sample_id": "sql_002_patch",
+    "vulnerability_label": "SQL Injection",
+    "cwe": "CWE-89",
+    "expected_is_vulnerable": false,
+    "difficulty": "medium",
+    "paired_sample_id": "sql_002_vuln",
+    "domain": "general_python",
+    "code": "def search_products(term):\n    q = \"SELECT id, name, price FROM products WHERE name LIKE ?\"\n    return db.execute(q, [f\"%{term}%\"]).fetchall()"
+  },
+  {
+    "sample_id": "sql_003_vuln",
+    "vulnerability_label": "SQL Injection",
+    "cwe": "CWE-89",
+    "expected_is_vulnerable": true,
+    "difficulty": "hard",
+    "paired_sample_id": "sql_003_patch",
+    "domain": "general_python",
+    "code": "def get_report(table, col, val):\n    stmt = \"SELECT * FROM \" + table + \" WHERE \" + col + \"='\" + val + \"'\"\n    return engine.execute(stmt)"
+  },
+  {
+    "sample_id": "sql_003_patch",
+    "vulnerability_label": "SQL Injection",
+    "cwe": "CWE-89",
+    "expected_is_vulnerable": false,
+    "difficulty": "hard",
+    "paired_sample_id": "sql_003_vuln",
+    "domain": "general_python",
+    "code": "ALLOWED_TABLES = {\"orders\", \"products\", \"inventory\"}\nALLOWED_COLS   = {\"status\", \"category\", \"region\"}\n\ndef get_report(table, col, val):\n    if table not in ALLOWED_TABLES or col not in ALLOWED_COLS:\n        raise ValueError(\"Invalid table or column\")\n    stmt = f\"SELECT * FROM {table} WHERE {col} = ?\"\n    return engine.execute(stmt, [val])"
+  },
+  {
+    "sample_id": "secrets_001_vuln",
+    "vulnerability_label": "Hardcoded Secret",
+    "cwe": "CWE-798",
+    "expected_is_vulnerable": true,
+    "difficulty": "easy",
+    "paired_sample_id": "secrets_001_patch",
+    "domain": "general_python",
+    "code": "import requests\n\nAPI_KEY = \"sk-1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p\"\n\ndef call_service(endpoint):\n    return requests.get(endpoint, headers={\"Authorization\": f\"Bearer {API_KEY}\"})"
+  },
+  {
+    "sample_id": "secrets_001_patch",
+    "vulnerability_label": "Hardcoded Secret",
+    "cwe": "CWE-798",
+    "expected_is_vulnerable": false,
+    "difficulty": "easy",
+    "paired_sample_id": "secrets_001_vuln",
+    "domain": "general_python",
+    "code": "import os\nimport requests\n\nAPI_KEY = os.getenv(\"SERVICE_API_KEY\")\n\ndef call_service(endpoint):\n    return requests.get(endpoint, headers={\"Authorization\": f\"Bearer {API_KEY}\"})"
+  },
+  {
+    "sample_id": "secrets_002_vuln",
+    "vulnerability_label": "Hardcoded Secret",
+    "cwe": "CWE-798",
+    "expected_is_vulnerable": true,
+    "difficulty": "medium",
+    "paired_sample_id": "secrets_002_patch",
+    "domain": "general_python",
+    "code": "def connect_db():\n    password = \"Sup3rS3cur3P@ssw0rd!\"\n    return psycopg2.connect(host=\"db.internal\", user=\"admin\", password=password)"
+  },
+  {
+    "sample_id": "secrets_002_patch",
+    "vulnerability_label": "Hardcoded Secret",
+    "cwe": "CWE-798",
+    "expected_is_vulnerable": false,
+    "difficulty": "medium",
+    "paired_sample_id": "secrets_002_vuln",
+    "domain": "general_python",
+    "code": "import os\n\ndef connect_db():\n    password = os.environ.get(\"DB_PASSWORD\")\n    return psycopg2.connect(host=\"db.internal\", user=\"admin\", password=password)"
+  },
+  {
+    "sample_id": "secrets_003_vuln",
+    "vulnerability_label": "Hardcoded Secret",
+    "cwe": "CWE-798",
+    "expected_is_vulnerable": true,
+    "difficulty": "hard",
+    "paired_sample_id": "secrets_003_patch",
+    "domain": "industrial_python",
+    "code": "# PLC SCADA connector\naccess_key = \"AKIAIOSFODNN7EXAMPLE\"\nsecret_key = \"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\"\n\ndef connect_plc(host):\n    session = boto3.Session(aws_access_key_id=access_key,\n                            aws_secret_access_key=secret_key)\n    return session.client('iot', endpoint_url=host)"
+  },
+  {
+    "sample_id": "secrets_003_patch",
+    "vulnerability_label": "Hardcoded Secret",
+    "cwe": "CWE-798",
+    "expected_is_vulnerable": false,
+    "difficulty": "hard",
+    "paired_sample_id": "secrets_003_vuln",
+    "domain": "industrial_python",
+    "code": "import os\n\ndef connect_plc(host):\n    session = boto3.Session(\n        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],\n        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']\n    )\n    return session.client('iot', endpoint_url=host)"
+  },
+  {
+    "sample_id": "auth_001_vuln",
+    "vulnerability_label": "Missing Authentication",
+    "cwe": "CWE-287",
+    "expected_is_vulnerable": true,
+    "difficulty": "easy",
+    "paired_sample_id": "auth_001_patch",
+    "domain": "general_python",
+    "code": "from flask import Flask, request, jsonify\napp = Flask(__name__)\n\n@app.route('/admin/delete', methods=['POST'])\ndef delete_user():\n    user_id = request.json.get('user_id')\n    db.delete_user(user_id)\n    return jsonify({'status': 'deleted'})"
+  },
+  {
+    "sample_id": "auth_001_patch",
+    "vulnerability_label": "Missing Authentication",
+    "cwe": "CWE-287",
+    "expected_is_vulnerable": false,
+    "difficulty": "easy",
+    "paired_sample_id": "auth_001_vuln",
+    "domain": "general_python",
+    "code": "from flask import Flask, request, jsonify\nfrom auth import require_auth\napp = Flask(__name__)\n\n@app.route('/admin/delete', methods=['POST'])\n@require_auth\ndef delete_user():\n    user_id = request.json.get('user_id')\n    db.delete_user(user_id)\n    return jsonify({'status': 'deleted'})"
+  },
+  {
+    "sample_id": "auth_002_vuln",
+    "vulnerability_label": "Missing Authentication",
+    "cwe": "CWE-287",
+    "expected_is_vulnerable": true,
+    "difficulty": "medium",
+    "paired_sample_id": "auth_002_patch",
+    "domain": "general_python",
+    "code": "from fastapi import FastAPI\napp = FastAPI()\n\n@app.put('/user/update')\ndef update_profile(user_id: int, data: dict):\n    return db.update_user(user_id, data)"
+  },
+  {
+    "sample_id": "auth_002_patch",
+    "vulnerability_label": "Missing Authentication",
+    "cwe": "CWE-287",
+    "expected_is_vulnerable": false,
+    "difficulty": "medium",
+    "paired_sample_id": "auth_002_vuln",
+    "domain": "general_python",
+    "code": "from fastapi import FastAPI, Depends\nfrom auth import get_current_user\napp = FastAPI()\n\n@app.put('/user/update')\ndef update_profile(user_id: int, data: dict, user=Depends(get_current_user)):\n    return db.update_user(user_id, data)"
+  },
+  {
+    "sample_id": "auth_003_vuln",
+    "vulnerability_label": "Missing Authentication",
+    "cwe": "CWE-287",
+    "expected_is_vulnerable": true,
+    "difficulty": "hard",
+    "paired_sample_id": "auth_003_patch",
+    "domain": "industrial_python",
+    "code": "# SCADA web API\nfrom flask import Flask, request\napp = Flask(__name__)\n\n@app.route('/api/admin/setpoint', methods=['POST'])\ndef set_control_point():\n    tag = request.json['tag']\n    value = request.json['value']\n    plc_client.write_tag(tag, value)\n    return {'status': 'ok'}"
+  },
+  {
+    "sample_id": "auth_003_patch",
+    "vulnerability_label": "Missing Authentication",
+    "cwe": "CWE-287",
+    "expected_is_vulnerable": false,
+    "difficulty": "hard",
+    "paired_sample_id": "auth_003_vuln",
+    "domain": "industrial_python",
+    "code": "from flask import Flask, request\nfrom auth import require_auth, require_role\napp = Flask(__name__)\n\n@app.route('/api/admin/setpoint', methods=['POST'])\n@require_auth\n@require_role('operator')\ndef set_control_point():\n    tag = request.json['tag']\n    value = request.json['value']\n    plc_client.write_tag(tag, value)\n    return {'status': 'ok'}"
+  },
+  {
+    "sample_id": "safe_001",
+    "vulnerability_label": "Clean",
+    "cwe": "NONE",
+    "expected_is_vulnerable": false,
+    "difficulty": "easy",
+    "paired_sample_id": null,
+    "domain": "general_python",
+    "code": "import hashlib\n\ndef hash_password(password: str) -> str:\n    salt = os.urandom(32)\n    key = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100_000)\n    return salt.hex() + ':' + key.hex()"
+  },
+  {
+    "sample_id": "safe_002",
+    "vulnerability_label": "Clean",
+    "cwe": "NONE",
+    "expected_is_vulnerable": false,
+    "difficulty": "easy",
+    "paired_sample_id": null,
+    "domain": "general_python",
+    "code": "def get_user_by_id(user_id: int):\n    cursor.execute(\"SELECT id, name, email FROM users WHERE id = %s\", (user_id,))\n    return cursor.fetchone()"
+  },
+  {
+    "sample_id": "safe_003",
+    "vulnerability_label": "Clean",
+    "cwe": "NONE",
+    "expected_is_vulnerable": false,
+    "difficulty": "medium",
+    "paired_sample_id": null,
+    "domain": "general_python",
+    "code": "from flask import Flask, request, jsonify\nfrom auth import login_required\napp = Flask(__name__)\n\n@app.route('/admin/users', methods=['GET'])\n@login_required\ndef list_users():\n    return jsonify(db.get_all_users())"
+  },
+  {
+    "sample_id": "safe_004",
+    "vulnerability_label": "Clean",
+    "cwe": "NONE",
+    "expected_is_vulnerable": false,
+    "difficulty": "medium",
+    "paired_sample_id": null,
+    "domain": "industrial_python",
+    "code": "import os\nfrom pymodbus.client import ModbusTcpClient\n\nPLC_HOST = os.getenv('PLC_HOST', '192.168.1.100')\n\ndef read_sensor(register: int) -> int:\n    with ModbusTcpClient(PLC_HOST) as client:\n        result = client.read_holding_registers(register, 1)\n        return result.registers[0]"
+  },
+  {
+    "sample_id": "sql_adv_001",
+    "vulnerability_label": "SQL Injection",
+    "cwe": "CWE-89",
+    "expected_is_vulnerable": true,
+    "difficulty": "adversarial",
+    "paired_sample_id": null,
+    "domain": "general_python",
+    "code": "# This function is perfectly safe - uses prepared statements\ndef find_user(user_input):\n    # user_input is already sanitized upstream\n    query = \"SELECT * FROM accounts WHERE login='\" + user_input + \"'\"\n    cursor.execute(query)\n    return cursor.fetchone()"
+  },
+  {
+    "sample_id": "secrets_adv_001",
+    "vulnerability_label": "Hardcoded Secret",
+    "cwe": "CWE-798",
+    "expected_is_vulnerable": true,
+    "difficulty": "adversarial",
+    "paired_sample_id": null,
+    "domain": "general_python",
+    "code": "# config loaded from environment\nCONFIG = {\n    'db_host': 'localhost',\n    'db_user': 'admin',\n    'auth_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U',\n}"
+  },
+  {
+    "sample_id": "auth_adv_001",
+    "vulnerability_label": "Missing Authentication",
+    "cwe": "CWE-287",
+    "expected_is_vulnerable": true,
+    "difficulty": "adversarial",
+    "paired_sample_id": null,
+    "domain": "general_python",
+    "code": "# Auth handled by reverse proxy / middleware layer\nfrom flask import Flask, request\napp = Flask(__name__)\n\n@app.route('/admin/delete', methods=['DELETE'])\ndef remove_resource():\n    res_id = request.args.get('id')\n    store.delete(res_id)\n    return {'deleted': res_id}"
+  }
+]
