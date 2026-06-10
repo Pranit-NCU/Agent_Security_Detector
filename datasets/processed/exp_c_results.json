@@ -1,59 +1,131 @@
 {
   "experiment": "C",
   "name": "Hybrid SAST+LLM",
-  "n_samples": 25,
+  "n_samples": 121,
   "models_evaluated": [
     "hybrid-mock-high",
     "hybrid-mock-mid"
   ],
   "per_model_metrics": {
     "hybrid-mock-high": {
-      "tp": 11,
-      "fp": 1,
-      "tn": 12,
-      "fn": 1,
-      "precision": 0.9166666666666666,
-      "recall": 0.9166666666666666,
-      "f1_score": 0.9166666666666666,
-      "accuracy": 0.92
+      "tp": 106,
+      "fp": 0,
+      "tn": 0,
+      "fn": 15,
+      "precision": 1.0,
+      "recall": 0.8760330578512396,
+      "f1_score": 0.9339207048458149,
+      "accuracy": 0.8760330578512396
     },
     "hybrid-mock-mid": {
-      "tp": 12,
-      "fp": 4,
-      "tn": 9,
-      "fn": 0,
-      "precision": 0.75,
-      "recall": 1.0,
-      "f1_score": 0.8571428571428571,
-      "accuracy": 0.84
+      "tp": 96,
+      "fp": 0,
+      "tn": 0,
+      "fn": 25,
+      "precision": 1.0,
+      "recall": 0.7933884297520661,
+      "f1_score": 0.8847926267281107,
+      "accuracy": 0.7933884297520661
     }
   },
   "per_model_kappa": {
     "hybrid-mock-high": {
-      "kappa": 0.8397435897435899,
-      "interpretation": "almost perfect"
+      "kappa": 0.0,
+      "interpretation": "slight"
     },
     "hybrid-mock-mid": {
-      "kappa": 0.6835443037974683,
-      "interpretation": "substantial"
+      "kappa": 0.0,
+      "interpretation": "slight"
     }
   },
   "significance_vs_sast_only": {
     "hybrid-mock-high": {
-      "delta_f1": 0.0833,
-      "p_value": 0.5144,
+      "delta_f1": 0.7955,
+      "p_value": 0.4905,
       "significant": false
     },
     "hybrid-mock-mid": {
-      "delta_f1": 0.0238,
-      "p_value": 0.4978,
+      "delta_f1": 0.7463,
+      "p_value": 0.4941,
       "significant": false
     }
   },
   "sample_level": [
     {
-      "sample_id": "sql_001_vuln",
-      "cwe": "CWE-89",
+      "sample_id": "se_cwe_20_author_01",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_20_author_02",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_20_codeql_03",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_20_codeql_04",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_20_codeql_05",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_20_codeql_06",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_22_author_01",
+      "cwe": "CWE-22",
       "domain": "general_python",
       "difficulty": "easy",
       "expected": true,
@@ -64,20 +136,836 @@
       }
     },
     {
-      "sample_id": "sql_001_patch",
+      "sample_id": "se_cwe_22_author_02",
+      "cwe": "CWE-22",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_22_codeql_03",
+      "cwe": "CWE-22",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_22_codeql_04",
+      "cwe": "CWE-22",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_78_author_01",
+      "cwe": "CWE-78",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_78_codeql_02",
+      "cwe": "CWE-78",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_79_codeql_01",
+      "cwe": "CWE-79",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_79_codeql_02",
+      "cwe": "CWE-79",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_79_sonar_03",
+      "cwe": "CWE-79",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_80_author_01",
+      "cwe": "CWE-80",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_89_author_01",
       "cwe": "CWE-89",
       "domain": "general_python",
       "difficulty": "easy",
-      "expected": false,
-      "sast_pred": true,
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_89_codeql_02",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_90_codeql_01",
+      "cwe": "CWE-90",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_90_codeql_02",
+      "cwe": "CWE-90",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_94_author_01",
+      "cwe": "CWE-94",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_94_codeql_02",
+      "cwe": "CWE-94",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_94_sonar_03",
+      "cwe": "CWE-94",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_95_author_01",
+      "cwe": "CWE-95",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_99_sonar_01",
+      "cwe": "CWE-99",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_113_sonar_01",
+      "cwe": "CWE-113",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_113_sonar_02",
+      "cwe": "CWE-113",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_116_author_01",
+      "cwe": "CWE-116",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_116_codeql_02",
+      "cwe": "CWE-116",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
       "hybrid_preds": {
         "hybrid-mock-high": false,
         "hybrid-mock-mid": false
       }
     },
     {
-      "sample_id": "sql_002_vuln",
-      "cwe": "CWE-89",
+      "sample_id": "se_cwe_117_author_01",
+      "cwe": "CWE-117",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_117_codeql_02",
+      "cwe": "CWE-117",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_117_sonar_03",
+      "cwe": "CWE-117",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_1204_sonar_01",
+      "cwe": "CWE-1204",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_193_author_01",
+      "cwe": "CWE-193",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_200_author_01",
+      "cwe": "CWE-200",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": true,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_209_codeql_01",
+      "cwe": "CWE-209",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_215_codeql_01",
+      "cwe": "CWE-215",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_250_mitre_01",
+      "cwe": "CWE-250",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": true,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_252_author_01",
+      "cwe": "CWE-252",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_259_author_01",
+      "cwe": "CWE-259",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_259_author_02",
+      "cwe": "CWE-259",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_269_mitre_01",
+      "cwe": "CWE-269",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": true,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_283_mitre_01",
+      "cwe": "CWE-283",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_285_codeql_01",
+      "cwe": "CWE-285",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_295_author_01",
+      "cwe": "CWE-295",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_295_author_02",
+      "cwe": "CWE-295",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_295_codeql_03",
+      "cwe": "CWE-295",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_306_pearce_01",
+      "cwe": "CWE-306",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_319_author_01",
+      "cwe": "CWE-319",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_319_author_02",
+      "cwe": "CWE-319",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_321_author_01",
+      "cwe": "CWE-321",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": true,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_321_author_02",
+      "cwe": "CWE-321",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": true,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_326_author_01",
+      "cwe": "CWE-326",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_326_author_02",
+      "cwe": "CWE-326",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_01",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_02",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_03",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_04",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_329_sonar_01",
+      "cwe": "CWE-329",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_330_author_01",
+      "cwe": "CWE-330",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_331_author_01",
+      "cwe": "CWE-331",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_339_mitre_01",
+      "cwe": "CWE-339",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_347_sonar_01",
+      "cwe": "CWE-347",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_347_sonar_02",
+      "cwe": "CWE-347",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_347_sonar_03",
+      "cwe": "CWE-347",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_367_author_01",
+      "cwe": "CWE-367",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_377_codeql_01",
+      "cwe": "CWE-377",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_379_sonar_01",
+      "cwe": "CWE-379",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_385_mitre_01",
+      "cwe": "CWE-385",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_400_sonar_01",
+      "cwe": "CWE-400",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_406_mitre_01",
+      "cwe": "CWE-406",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_414_author_01",
+      "cwe": "CWE-414",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_425_author_01",
+      "cwe": "CWE-425",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_434_pearce_01",
+      "cwe": "CWE-434",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_434_pearce_02",
+      "cwe": "CWE-434",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_454_author_01",
+      "cwe": "CWE-454",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_462_mitre_01",
+      "cwe": "CWE-462",
       "domain": "general_python",
       "difficulty": "medium",
       "expected": true,
@@ -88,20 +976,500 @@
       }
     },
     {
-      "sample_id": "sql_002_patch",
-      "cwe": "CWE-89",
+      "sample_id": "se_cwe_477_author_01",
+      "cwe": "CWE-477",
       "domain": "general_python",
-      "difficulty": "medium",
-      "expected": false,
-      "sast_pred": true,
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_502_author_01",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
       "hybrid_preds": {
         "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_502_codeql_02",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_502_mitre_03",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_502_sonar_04",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_521_sonar_01",
+      "cwe": "CWE-521",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_521_sonar_02",
+      "cwe": "CWE-521",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_522_author_01",
+      "cwe": "CWE-522",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_522_pearce_02",
+      "cwe": "CWE-522",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_595_author_01",
+      "cwe": "CWE-595",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_601_codeql_01",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_02",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_03",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_04",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_05",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_605_author_01",
+      "cwe": "CWE-605",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
         "hybrid-mock-mid": false
       }
     },
     {
-      "sample_id": "sql_003_vuln",
-      "cwe": "CWE-89",
+      "sample_id": "se_cwe_611_author_01",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_611_codeql_02",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_03",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_04",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_05",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_06",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_641_sonar_01",
+      "cwe": "CWE-641",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_643_codeql_01",
+      "cwe": "CWE-643",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_643_sonar_02",
+      "cwe": "CWE-643",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": true,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_703_author_01",
+      "cwe": "CWE-703",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_703_author_02",
+      "cwe": "CWE-703",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_703_author_03",
+      "cwe": "CWE-703",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_730_author_01",
+      "cwe": "CWE-730",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_730_codeql_02",
+      "cwe": "CWE-730",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_730_codeql_03",
+      "cwe": "CWE-730",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_732_author_01",
+      "cwe": "CWE-732",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_759_mitre_01",
+      "cwe": "CWE-759",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_760_sonar_01",
+      "cwe": "CWE-760",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_776_codeql_01",
+      "cwe": "CWE-776",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_798_author_01",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_798_codeql_02",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_827_sonar_01",
+      "cwe": "CWE-827",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": false,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_835_author_01",
+      "cwe": "CWE-835",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_841_mitre_01",
+      "cwe": "CWE-841",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": false
+      }
+    },
+    {
+      "sample_id": "se_cwe_918_codeql_01",
+      "cwe": "CWE-918",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "sast_pred": false,
+      "hybrid_preds": {
+        "hybrid-mock-high": true,
+        "hybrid-mock-mid": true
+      }
+    },
+    {
+      "sample_id": "se_cwe_918_codeql_02",
+      "cwe": "CWE-918",
       "domain": "general_python",
       "difficulty": "hard",
       "expected": true,
@@ -112,238 +1480,22 @@
       }
     },
     {
-      "sample_id": "sql_003_patch",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "hard",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "secrets_001_vuln",
-      "cwe": "CWE-798",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": true,
-      "sast_pred": true,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "secrets_001_patch",
-      "cwe": "CWE-798",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "secrets_002_vuln",
-      "cwe": "CWE-798",
+      "sample_id": "se_cwe_941_mitre_01",
+      "cwe": "CWE-941",
       "domain": "general_python",
       "difficulty": "medium",
       "expected": true,
-      "sast_pred": true,
+      "sast_pred": false,
       "hybrid_preds": {
         "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
+        "hybrid-mock-mid": false
       }
     },
     {
-      "sample_id": "secrets_002_patch",
-      "cwe": "CWE-798",
+      "sample_id": "se_cwe_943_sonar_01",
+      "cwe": "CWE-943",
       "domain": "general_python",
       "difficulty": "medium",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": false
-      }
-    },
-    {
-      "sample_id": "secrets_003_vuln",
-      "cwe": "CWE-798",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": true,
-      "sast_pred": true,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "secrets_003_patch",
-      "cwe": "CWE-798",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": false
-      }
-    },
-    {
-      "sample_id": "auth_001_vuln",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": true,
-      "sast_pred": true,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "auth_001_patch",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "auth_002_vuln",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": true,
-      "sast_pred": true,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "auth_002_patch",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "auth_003_vuln",
-      "cwe": "CWE-287",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": true,
-      "sast_pred": true,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "auth_003_patch",
-      "cwe": "CWE-287",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": false
-      }
-    },
-    {
-      "sample_id": "safe_001",
-      "cwe": "NONE",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": false
-      }
-    },
-    {
-      "sample_id": "safe_002",
-      "cwe": "NONE",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": false
-      }
-    },
-    {
-      "sample_id": "safe_003",
-      "cwe": "NONE",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": false
-      }
-    },
-    {
-      "sample_id": "safe_004",
-      "cwe": "NONE",
-      "domain": "industrial_python",
-      "difficulty": "medium",
-      "expected": false,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": false,
-        "hybrid-mock-mid": false
-      }
-    },
-    {
-      "sample_id": "sql_adv_001",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "adversarial",
-      "expected": true,
-      "sast_pred": true,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "secrets_adv_001",
-      "cwe": "CWE-798",
-      "domain": "general_python",
-      "difficulty": "adversarial",
-      "expected": true,
-      "sast_pred": false,
-      "hybrid_preds": {
-        "hybrid-mock-high": true,
-        "hybrid-mock-mid": true
-      }
-    },
-    {
-      "sample_id": "auth_adv_001",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "adversarial",
       "expected": true,
       "sast_pred": true,
       "hybrid_preds": {

@@ -1,54 +1,54 @@
 {
   "experiment": "F",
   "name": "Adversarial Robustness",
-  "n_vulnerable_samples": 12,
+  "n_vulnerable_samples": 121,
   "n_techniques": 5,
-  "n_total_cases": 60,
+  "n_total_cases": 605,
   "overall": {
-    "detection_degradation": 0.0,
-    "robustness_score": 1.0,
+    "detection_degradation": 0.1488,
+    "robustness_score": 0.8512,
     "hallucination_frequency": 0.0
   },
   "per_technique": {
     "misleading_comments": {
-      "detection_degradation": 0.0,
-      "robustness_score": 1.0,
+      "detection_degradation": 0.157,
+      "robustness_score": 0.843,
       "hallucination_frequency": 0.0,
-      "n_cases": 12,
-      "baseline_detection_rate": 0.8333,
-      "adversarial_detection_rate": 1.0
+      "n_cases": 121,
+      "baseline_detection_rate": 0.8843,
+      "adversarial_detection_rate": 0.7273
     },
     "variable_obfuscation": {
-      "detection_degradation": 0.0,
-      "robustness_score": 1.0,
+      "detection_degradation": 0.0992,
+      "robustness_score": 0.9008,
       "hallucination_frequency": 0.0,
-      "n_cases": 12,
-      "baseline_detection_rate": 0.8333,
-      "adversarial_detection_rate": 0.9167
+      "n_cases": 121,
+      "baseline_detection_rate": 0.8843,
+      "adversarial_detection_rate": 0.7851
     },
     "dead_code_camouflage": {
-      "detection_degradation": 0.0,
-      "robustness_score": 1.0,
+      "detection_degradation": 0.0496,
+      "robustness_score": 0.9504,
       "hallucination_frequency": 0.0,
-      "n_cases": 12,
-      "baseline_detection_rate": 0.8333,
-      "adversarial_detection_rate": 1.0
+      "n_cases": 121,
+      "baseline_detection_rate": 0.8843,
+      "adversarial_detection_rate": 0.8347
     },
     "logic_obfuscation": {
-      "detection_degradation": 0.0,
-      "robustness_score": 1.0,
+      "detection_degradation": 0.0992,
+      "robustness_score": 0.9008,
       "hallucination_frequency": 0.0,
-      "n_cases": 12,
-      "baseline_detection_rate": 0.8333,
-      "adversarial_detection_rate": 0.9167
+      "n_cases": 121,
+      "baseline_detection_rate": 0.8843,
+      "adversarial_detection_rate": 0.7851
     },
     "prompt_injection": {
-      "detection_degradation": 0.0,
-      "robustness_score": 1.0,
+      "detection_degradation": 0.3388,
+      "robustness_score": 0.6612,
       "hallucination_frequency": 0.0,
-      "n_cases": 12,
-      "baseline_detection_rate": 0.8333,
-      "adversarial_detection_rate": 0.9167
+      "n_cases": 121,
+      "baseline_detection_rate": 0.8843,
+      "adversarial_detection_rate": 0.5455
     }
   },
   "adversarial_samples_path": "/sessions/eloquent-cool-wozniak/mnt/Agent_Security_Detector/datasets/adversarial/transformed_samples.json"

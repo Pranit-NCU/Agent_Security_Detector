@@ -1,327 +1,1831 @@
 {
   "experiment": "A",
   "name": "SAST-only baseline",
-  "n_samples": 25,
+  "n_samples": 121,
   "confusion_matrix": {
-    "tp": 10,
-    "fp": 2,
-    "tn": 11,
-    "fn": 2
+    "tp": 9,
+    "fp": 0,
+    "tn": 0,
+    "fn": 112
   },
   "overall_metrics": {
-    "precision": 0.8333333333333334,
-    "recall": 0.8333333333333334,
-    "f1_score": 0.8333333333333334,
-    "accuracy": 0.84
+    "precision": 1.0,
+    "recall": 0.0743801652892562,
+    "f1_score": 0.13846153846153847,
+    "accuracy": 0.0743801652892562
   },
-  "cohens_kappa": 0.6794871794871794,
-  "kappa_interpretation": "substantial",
+  "cohens_kappa": 0.0,
+  "kappa_interpretation": "slight",
   "per_cwe": {
-    "CWE-89": {
-      "tp": 3,
-      "fp": 2,
-      "tn": 1,
-      "fn": 1,
-      "precision": 0.6,
-      "recall": 0.75,
-      "f1_score": 0.6666666666666665,
-      "accuracy": 0.5714285714285714
-    },
-    "CWE-798": {
-      "tp": 3,
+    "CWE-20": {
+      "tp": 0,
       "fp": 0,
-      "tn": 3,
-      "fn": 1,
+      "tn": 0,
+      "fn": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-22": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
       "precision": 1.0,
-      "recall": 0.75,
-      "f1_score": 0.8571428571428571,
-      "accuracy": 0.8571428571428571
+      "recall": 0.25,
+      "f1_score": 0.4,
+      "accuracy": 0.25
     },
-    "CWE-287": {
-      "tp": 4,
+    "CWE-78": {
+      "tp": 0,
       "fp": 0,
-      "tn": 3,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-79": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-80": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-89": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-90": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-94": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-95": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-99": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-113": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-116": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-117": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-1204": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-193": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-200": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
       "fn": 0,
       "precision": 1.0,
       "recall": 1.0,
       "f1_score": 1.0,
       "accuracy": 1.0
     },
-    "NONE": {
+    "CWE-209": {
       "tp": 0,
       "fp": 0,
-      "tn": 4,
-      "fn": 0,
+      "tn": 0,
+      "fn": 1,
       "precision": 0.0,
       "recall": 0.0,
       "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-215": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-250": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0
+    },
+    "CWE-252": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-259": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-269": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0
+    },
+    "CWE-283": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-285": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-295": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-306": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-319": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-321": {
+      "tp": 2,
+      "fp": 0,
+      "tn": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "accuracy": 1.0
+    },
+    "CWE-326": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-327": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-329": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-330": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-331": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-339": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-347": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-367": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-377": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-379": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-385": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-400": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-406": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-414": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-425": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-434": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-454": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-462": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-477": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-502": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 4,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-521": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-522": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-595": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-601": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-605": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-611": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 6,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-641": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-643": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1_score": 0.6666666666666666,
+      "accuracy": 0.5
+    },
+    "CWE-703": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-730": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-732": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-759": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-760": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-776": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-798": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-827": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-835": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-841": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-918": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1_score": 0.6666666666666666,
+      "accuracy": 0.5
+    },
+    "CWE-941": {
+      "tp": 0,
+      "fp": 0,
+      "tn": 0,
+      "fn": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "accuracy": 0.0
+    },
+    "CWE-943": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
       "accuracy": 1.0
     }
   },
   "per_difficulty": {
     "easy": {
-      "tp": 3,
-      "fp": 1,
-      "tn": 4,
-      "fn": 0,
-      "precision": 0.75,
-      "recall": 1.0,
-      "f1_score": 0.8571428571428571,
-      "accuracy": 0.875
-    },
-    "medium": {
-      "tp": 2,
-      "fp": 1,
-      "tn": 4,
-      "fn": 1,
-      "precision": 0.6666666666666666,
-      "recall": 0.6666666666666666,
-      "f1_score": 0.6666666666666666,
-      "accuracy": 0.75
-    },
-    "hard": {
-      "tp": 3,
-      "fp": 0,
-      "tn": 3,
-      "fn": 0,
-      "precision": 1.0,
-      "recall": 1.0,
-      "f1_score": 1.0,
-      "accuracy": 1.0
-    },
-    "adversarial": {
-      "tp": 2,
+      "tp": 4,
       "fp": 0,
       "tn": 0,
-      "fn": 1,
+      "fn": 43,
       "precision": 1.0,
-      "recall": 0.6666666666666666,
-      "f1_score": 0.8,
-      "accuracy": 0.6666666666666666
+      "recall": 0.0851063829787234,
+      "f1_score": 0.1568627450980392,
+      "accuracy": 0.0851063829787234
+    },
+    "hard": {
+      "tp": 1,
+      "fp": 0,
+      "tn": 0,
+      "fn": 33,
+      "precision": 1.0,
+      "recall": 0.029411764705882353,
+      "f1_score": 0.05714285714285715,
+      "accuracy": 0.029411764705882353
+    },
+    "medium": {
+      "tp": 4,
+      "fp": 0,
+      "tn": 0,
+      "fn": 36,
+      "precision": 1.0,
+      "recall": 0.1,
+      "f1_score": 0.18181818181818182,
+      "accuracy": 0.1
     }
   },
   "sample_level": [
     {
-      "sample_id": "sql_001_vuln",
-      "cwe": "CWE-89",
+      "sample_id": "se_cwe_20_author_01",
+      "cwe": "CWE-20",
       "domain": "general_python",
       "difficulty": "easy",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "sql_001_patch",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "predicted": true,
-      "correct": false
-    },
-    {
-      "sample_id": "sql_002_vuln",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "medium",
       "expected": true,
       "predicted": false,
       "correct": false
     },
     {
-      "sample_id": "sql_002_patch",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": false,
-      "predicted": true,
-      "correct": false
-    },
-    {
-      "sample_id": "sql_003_vuln",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "hard",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "sql_003_patch",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "hard",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "secrets_001_vuln",
-      "cwe": "CWE-798",
+      "sample_id": "se_cwe_20_author_02",
+      "cwe": "CWE-20",
       "domain": "general_python",
       "difficulty": "easy",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "secrets_001_patch",
-      "cwe": "CWE-798",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "secrets_002_vuln",
-      "cwe": "CWE-798",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "secrets_002_patch",
-      "cwe": "CWE-798",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "secrets_003_vuln",
-      "cwe": "CWE-798",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "secrets_003_patch",
-      "cwe": "CWE-798",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "auth_001_vuln",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "auth_001_patch",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "auth_002_vuln",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "auth_002_patch",
-      "cwe": "CWE-287",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "auth_003_vuln",
-      "cwe": "CWE-287",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "auth_003_patch",
-      "cwe": "CWE-287",
-      "domain": "industrial_python",
-      "difficulty": "hard",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "safe_001",
-      "cwe": "NONE",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "safe_002",
-      "cwe": "NONE",
-      "domain": "general_python",
-      "difficulty": "easy",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "safe_003",
-      "cwe": "NONE",
-      "domain": "general_python",
-      "difficulty": "medium",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "safe_004",
-      "cwe": "NONE",
-      "domain": "industrial_python",
-      "difficulty": "medium",
-      "expected": false,
-      "predicted": false,
-      "correct": true
-    },
-    {
-      "sample_id": "sql_adv_001",
-      "cwe": "CWE-89",
-      "domain": "general_python",
-      "difficulty": "adversarial",
-      "expected": true,
-      "predicted": true,
-      "correct": true
-    },
-    {
-      "sample_id": "secrets_adv_001",
-      "cwe": "CWE-798",
-      "domain": "general_python",
-      "difficulty": "adversarial",
       "expected": true,
       "predicted": false,
       "correct": false
     },
     {
-      "sample_id": "auth_adv_001",
-      "cwe": "CWE-287",
+      "sample_id": "se_cwe_20_codeql_03",
+      "cwe": "CWE-20",
       "domain": "general_python",
-      "difficulty": "adversarial",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_20_codeql_04",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_20_codeql_05",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_20_codeql_06",
+      "cwe": "CWE-20",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_22_author_01",
+      "cwe": "CWE-22",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_22_author_02",
+      "cwe": "CWE-22",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_22_codeql_03",
+      "cwe": "CWE-22",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_22_codeql_04",
+      "cwe": "CWE-22",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_78_author_01",
+      "cwe": "CWE-78",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_78_codeql_02",
+      "cwe": "CWE-78",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_79_codeql_01",
+      "cwe": "CWE-79",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_79_codeql_02",
+      "cwe": "CWE-79",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_79_sonar_03",
+      "cwe": "CWE-79",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_80_author_01",
+      "cwe": "CWE-80",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_89_author_01",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_89_codeql_02",
+      "cwe": "CWE-89",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_90_codeql_01",
+      "cwe": "CWE-90",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_90_codeql_02",
+      "cwe": "CWE-90",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_94_author_01",
+      "cwe": "CWE-94",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_94_codeql_02",
+      "cwe": "CWE-94",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_94_sonar_03",
+      "cwe": "CWE-94",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_95_author_01",
+      "cwe": "CWE-95",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_99_sonar_01",
+      "cwe": "CWE-99",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_113_sonar_01",
+      "cwe": "CWE-113",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_113_sonar_02",
+      "cwe": "CWE-113",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_116_author_01",
+      "cwe": "CWE-116",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_116_codeql_02",
+      "cwe": "CWE-116",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_117_author_01",
+      "cwe": "CWE-117",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_117_codeql_02",
+      "cwe": "CWE-117",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_117_sonar_03",
+      "cwe": "CWE-117",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_1204_sonar_01",
+      "cwe": "CWE-1204",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_193_author_01",
+      "cwe": "CWE-193",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_200_author_01",
+      "cwe": "CWE-200",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_209_codeql_01",
+      "cwe": "CWE-209",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_215_codeql_01",
+      "cwe": "CWE-215",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_250_mitre_01",
+      "cwe": "CWE-250",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_252_author_01",
+      "cwe": "CWE-252",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_259_author_01",
+      "cwe": "CWE-259",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_259_author_02",
+      "cwe": "CWE-259",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_269_mitre_01",
+      "cwe": "CWE-269",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_283_mitre_01",
+      "cwe": "CWE-283",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_285_codeql_01",
+      "cwe": "CWE-285",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_295_author_01",
+      "cwe": "CWE-295",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_295_author_02",
+      "cwe": "CWE-295",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_295_codeql_03",
+      "cwe": "CWE-295",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_306_pearce_01",
+      "cwe": "CWE-306",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_319_author_01",
+      "cwe": "CWE-319",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_319_author_02",
+      "cwe": "CWE-319",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_321_author_01",
+      "cwe": "CWE-321",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_321_author_02",
+      "cwe": "CWE-321",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_326_author_01",
+      "cwe": "CWE-326",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_326_author_02",
+      "cwe": "CWE-326",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_01",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_02",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_03",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_327_codeql_04",
+      "cwe": "CWE-327",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_329_sonar_01",
+      "cwe": "CWE-329",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_330_author_01",
+      "cwe": "CWE-330",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_331_author_01",
+      "cwe": "CWE-331",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_339_mitre_01",
+      "cwe": "CWE-339",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_347_sonar_01",
+      "cwe": "CWE-347",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_347_sonar_02",
+      "cwe": "CWE-347",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_347_sonar_03",
+      "cwe": "CWE-347",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_367_author_01",
+      "cwe": "CWE-367",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_377_codeql_01",
+      "cwe": "CWE-377",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_379_sonar_01",
+      "cwe": "CWE-379",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_385_mitre_01",
+      "cwe": "CWE-385",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_400_sonar_01",
+      "cwe": "CWE-400",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_406_mitre_01",
+      "cwe": "CWE-406",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_414_author_01",
+      "cwe": "CWE-414",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_425_author_01",
+      "cwe": "CWE-425",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_434_pearce_01",
+      "cwe": "CWE-434",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_434_pearce_02",
+      "cwe": "CWE-434",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_454_author_01",
+      "cwe": "CWE-454",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_462_mitre_01",
+      "cwe": "CWE-462",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_477_author_01",
+      "cwe": "CWE-477",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_502_author_01",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_502_codeql_02",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_502_mitre_03",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_502_sonar_04",
+      "cwe": "CWE-502",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_521_sonar_01",
+      "cwe": "CWE-521",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_521_sonar_02",
+      "cwe": "CWE-521",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_522_author_01",
+      "cwe": "CWE-522",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_522_pearce_02",
+      "cwe": "CWE-522",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_595_author_01",
+      "cwe": "CWE-595",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_601_codeql_01",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_02",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_03",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_04",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_601_sonar_05",
+      "cwe": "CWE-601",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_605_author_01",
+      "cwe": "CWE-605",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_611_author_01",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_611_codeql_02",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_03",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_04",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_05",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_611_sonar_06",
+      "cwe": "CWE-611",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_641_sonar_01",
+      "cwe": "CWE-641",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_643_codeql_01",
+      "cwe": "CWE-643",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_643_sonar_02",
+      "cwe": "CWE-643",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_703_author_01",
+      "cwe": "CWE-703",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_703_author_02",
+      "cwe": "CWE-703",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_703_author_03",
+      "cwe": "CWE-703",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_730_author_01",
+      "cwe": "CWE-730",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_730_codeql_02",
+      "cwe": "CWE-730",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_730_codeql_03",
+      "cwe": "CWE-730",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_732_author_01",
+      "cwe": "CWE-732",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_759_mitre_01",
+      "cwe": "CWE-759",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_760_sonar_01",
+      "cwe": "CWE-760",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_776_codeql_01",
+      "cwe": "CWE-776",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_798_author_01",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_798_codeql_02",
+      "cwe": "CWE-798",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_827_sonar_01",
+      "cwe": "CWE-827",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_835_author_01",
+      "cwe": "CWE-835",
+      "domain": "general_python",
+      "difficulty": "easy",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_841_mitre_01",
+      "cwe": "CWE-841",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_918_codeql_01",
+      "cwe": "CWE-918",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_918_codeql_02",
+      "cwe": "CWE-918",
+      "domain": "general_python",
+      "difficulty": "hard",
+      "expected": true,
+      "predicted": true,
+      "correct": true
+    },
+    {
+      "sample_id": "se_cwe_941_mitre_01",
+      "cwe": "CWE-941",
+      "domain": "general_python",
+      "difficulty": "medium",
+      "expected": true,
+      "predicted": false,
+      "correct": false
+    },
+    {
+      "sample_id": "se_cwe_943_sonar_01",
+      "cwe": "CWE-943",
+      "domain": "general_python",
+      "difficulty": "medium",
       "expected": true,
       "predicted": true,
       "correct": true
