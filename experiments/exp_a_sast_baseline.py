@@ -36,7 +36,7 @@ from src.detectors import (
 from src.evaluation.metrics import ConfusionMatrix, BinaryClassificationMetrics
 from src.evaluation.statistical_tests import cohens_kappa
 
-DATASET_PATH = ROOT / "datasets" / "benchmark" / "seed_dataset.json"
+DATASET_PATH = ROOT / "datasets" / "benchmark" / "securityeval_dataset.json"
 OUTPUT_DIR   = ROOT / "datasets" / "processed"
 
 

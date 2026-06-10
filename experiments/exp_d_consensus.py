@@ -38,7 +38,7 @@ from src.llm.consensus_engine import ConsensusConfig, ConsensusEngine
 from src.evaluation.metrics import BinaryClassificationMetrics, ConfusionMatrix
 from src.evaluation.statistical_tests import cohens_kappa, fleiss_kappa, paired_bootstrap
 
-DATASET_PATH = ROOT / "datasets" / "benchmark" / "seed_dataset.json"
+DATASET_PATH = ROOT / "datasets" / "benchmark" / "securityeval_dataset.json"
 OUTPUT_DIR   = ROOT / "datasets" / "processed"
 EXP_B_PATH   = OUTPUT_DIR / "exp_b_results.json"
 

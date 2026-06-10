@@ -51,7 +51,7 @@ from src.evaluation.adversarial_tests import (
     AdversarialCaseResult, AdversarialEvaluator, AdversarialTechnique,
 )
 
-DATASET_PATH  = ROOT / "datasets" / "benchmark" / "seed_dataset.json"
+DATASET_PATH  = ROOT / "datasets" / "benchmark" / "securityeval_dataset.json"
 ADVERSARIAL_DIR = ROOT / "datasets" / "adversarial"
 OUTPUT_DIR    = ROOT / "datasets" / "processed"
 

@@ -37,7 +37,7 @@ from src.llm.base_judge import BaseLLMJudge, JudgeConfig, JudgeResult
 from src.evaluation.metrics import BinaryClassificationMetrics, ConfusionMatrix
 from src.evaluation.statistical_tests import cohens_kappa
 
-DATASET_PATH = ROOT / "datasets" / "benchmark" / "seed_dataset.json"
+DATASET_PATH = ROOT / "datasets" / "benchmark" / "securityeval_dataset.json"
 OUTPUT_DIR   = ROOT / "datasets" / "processed"
 
 
