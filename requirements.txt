@@ -1,0 +1,29 @@
+# VERDICT — dependencies
+# ---------------------------------------------------------------------------
+# Design note: the core detection + LLM-judge + statistics stack is deliberately
+# STDLIB-ONLY (urllib for HTTP, no `requests`; math/json for stats). This keeps
+# the local repo reproducible and the Colab install fast. The packages below are
+# only for the *interface* (CLI, Streamlit) and the *figures* layer.
+#
+# Local dev:      pip install -r requirements.txt
+# Google Colab:   matplotlib is preinstalled; only `pip install click streamlit`
+#                 is needed if you want the CLI/dashboard in Colab (usually not).
+# ---------------------------------------------------------------------------
+
+# --- Core interface (local dev) ---
+click>=8.1            # src/cli.py
+streamlit>=1.30       # streamlit_app.py dashboard
+
+# --- Figures / publication charts (local + Colab) ---
+matplotlib>=3.7       # src/evaluation/figures.py
+
+# --- Testing ---
+pytest>=7.4
+
+# ---------------------------------------------------------------------------
+# NOT required (intentionally omitted):
+#   requests / httpx      -> we use urllib from the stdlib
+#   pandas / numpy        -> not needed; matplotlib pulls numpy transitively
+#   google-generativeai   -> GeminiJudge uses the raw REST endpoint via urllib
+#   python-dotenv         -> .env is parsed by a tiny inline parser in run_all.py
+# ---------------------------------------------------------------------------

@@ -1,0 +1,56 @@
+FUNCTION_BLOCK MATRIX_V4
+  VAR_INPUT
+    X1 : BOOL; X2 : BOOL; X3 : BOOL; X4 : BOOL; X5 : BOOL; RELEASE : BOOL;
+  END_VAR
+  VAR_OUTPUT
+    CODE : BYTE; _TP : BOOL; Y1 : BOOL := TRUE; Y2 : BOOL; Y3 : BOOL; Y4 : BOOL;
+  END_VAR
+  VAR
+    line : BYTE; x : ARRAY [0..3] OF BYTE; l : ARRAY [0..3] OF BYTE;
+    i : INT; temp : BYTE; temp2 : BYTE; L_temp : BYTE; temp_bit : BOOL; in_temp : INT;
+  END_VAR
+
+  _TP := FALSE; code := BYTE#0;
+
+  in_temp := _BYTE_TO_INT(line);
+  temp := X[in_temp];
+  temp:=BIT_LOAD_B(temp,X1,0); temp:=BIT_LOAD_B(temp,X2,1); temp:=BIT_LOAD_B(temp,X3,2);
+  temp:=BIT_LOAD_B(temp,X4,3); temp:=BIT_LOAD_B(temp,X5,4);
+
+  X[in_temp] := temp;
+
+  FOR i := 0 TO 3 DO
+    IF X[i] <> L[i] THEN
+      temp := x[i] XOR L[i]; temp2 := X[i]; L_temp := L[i];
+      IF BIT_OF_DWORD(BYTE_TO_DWORD(temp),0) THEN
+        code := BYTE#1; temp_bit := BIT_OF_DWORD(BYTE_TO_DWORD(temp2),0);
+        code := BIT_LOAD_B(code,temp_bit,6); (* MUTATION: X7 → X6 *)
+        L_temp := BIT_LOAD_B(L_temp,temp_bit,0);
+      ELSIF BIT_OF_DWORD(BYTE_TO_DWORD(temp),1) THEN
+        code := BYTE#2; temp_bit := BIT_OF_DWORD(BYTE_TO_DWORD(temp2),1);
+        code := BIT_LOAD_B(code,temp_bit,7); L_temp := BIT_LOAD_B(L_temp,temp_bit,1);
+      ELSIF BIT_OF_DWORD(BYTE_TO_DWORD(temp),2) THEN
+        code := BYTE#3; temp_bit := BIT_OF_DWORD(BYTE_TO_DWORD(temp2),2);
+        code := BIT_LOAD_B(code,temp_bit,7); L_temp := BIT_LOAD_B(L_temp,temp_bit,2);
+      ELSIF BIT_OF_DWORD(BYTE_TO_DWORD(temp),3) THEN
+        code := BYTE#4; temp_bit := BIT_OF_DWORD(BYTE_TO_DWORD(temp2),3);
+        code := BIT_LOAD_B(code,temp_bit,7); L_temp := BIT_LOAD_B(L_temp,temp_bit,3);
+      ELSIF BIT_OF_DWORD(BYTE_TO_DWORD(temp),4) THEN
+        code := BYTE#5; temp_bit := BIT_OF_DWORD(BYTE_TO_DWORD(temp2),4);
+        code := BIT_LOAD_B(code,temp_bit,7); L_temp := BIT_LOAD_B(L_temp,temp_bit,4);
+      END_IF;
+      L[i] := L_temp; _TP := TRUE;
+      code := (code AND BYTE#2#1000_1111) OR SHL(LINE AND BYTE#2#0000_0111,4);
+
+      IF NOT release AND code < BYTE#127 THEN
+        code := BYTE#0; _TP := FALSE;
+      END_IF;
+      EXIT;
+    END_IF;
+  END_FOR;
+
+  line := INT_TO_BYTE(_BYTE_TO_INT(line)+2) AND BYTE#2#0000_0011; (* MUTATION: increment +1 → +2 *)
+  temp := SHL(BYTE#1,_BYTE_TO_INT(line));
+  Y1 := BIT_OF_DWORD(BYTE_TO_DWORD(temp),0); Y2 := BIT_OF_DWORD(BYTE_TO_DWORD(temp),1);
+  Y3 := BIT_OF_DWORD(BYTE_TO_DWORD(temp),2); Y4 := BIT_OF_DWORD(BYTE_TO_DWORD(temp),3);
+END_FUNCTION_BLOCK

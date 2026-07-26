@@ -1,0 +1,58 @@
+FUNCTION_BLOCK CRC_GEN
+  VAR_IN_OUT
+    PT : ARRAY [0..249] OF BYTE;
+  END_VAR
+  VAR_INPUT
+    SIZE : UINT;
+    PL : UINT;
+    PN : DWORD;
+    INIT : DWORD;
+    REV_IN : BOOL;
+    REV_OUT : BOOL;
+    XOR_OUT : DWORD;
+  END_VAR
+  VAR_OUTPUT
+    _CRC_GEN : DWORD;
+  END_VAR
+  VAR
+    pos : INT;
+    shift : INT;
+    bits : INT;
+    dx : BYTE;
+  END_VAR
+
+  shift := 32 - UINT_TO_INT(PL);
+  PN := SHL(PN, shift);
+
+  FOR pos := 0 TO 3 DO
+    IF REV_IN THEN _CRC_GEN := SHL(_CRC_GEN, 8) OR BYTE_TO_DWORD(REVERSE(PT[pos])); ELSE _CRC_GEN := SHL(_CRC_GEN, 8) OR BYTE_TO_DWORD(PT[pos]); END_IF;
+  END_FOR;
+  pos := 4;
+
+  _CRC_GEN := _CRC_GEN XOR SHL(init, shift);
+
+  WHILE pos < UINT_TO_INT(size) DO
+    IF REV_IN THEN DX := REVERSE(PT[pos]); ELSE DX := PT[pos]; END_IF;
+    pos := pos + 1;
+    FOR bits := 0 TO 7 DO
+      IF (_CRC_GEN AND DWORD#16#8000_0000) > DWORD#0 THEN
+        _CRC_GEN := (SHL(_CRC_GEN, 1) OR BOOL_TO_DWORD((DX AND BYTE#16#80) > BYTE#0)) XOR PN;
+      ELSE
+        _CRC_GEN := SHL(_CRC_GEN, 1) OR BOOL_TO_DWORD((DX AND BYTE#16#80) > BYTE#0);
+      END_IF;
+      dx := SHR(dx, 1); (* mutation: changed SHL → SHR *)
+    END_FOR;
+  END_WHILE;
+
+  FOR bits := 0 TO 31 DO
+    IF (_CRC_GEN AND DWORD#16#8000_0000) > DWORD#0 THEN
+      _CRC_GEN := (SHL(_CRC_GEN, 1) OR BOOL_TO_DWORD((DX AND BYTE#16#80) > BYTE#0)) XOR PN;
+    ELSE
+      _CRC_GEN := SHL(_CRC_GEN, 1) OR BOOL_TO_DWORD((DX AND BYTE#16#80) > BYTE#0);
+    END_IF;
+  END_FOR;
+
+  _CRC_GEN := SHR(_CRC_GEN, shift) XOR XOR_OUT;
+
+  IF REV_OUT THEN _CRC_GEN := REFLECT(_CRC_GEN, UINT_TO_INT(PL)); END_IF;
+END_FUNCTION_BLOCK

@@ -1,0 +1,80 @@
+FUNCTION_BLOCK GEN_BIT
+  VAR_INPUT
+    IN0 : DWORD;
+    IN1 : DWORD;
+    IN2 : DWORD;
+    IN3 : DWORD;
+    CLK : BOOL;
+    STEPS : INT;
+    REP : INT;
+    RST : BOOL;
+  END_VAR
+  VAR_OUTPUT
+    Q0 : BOOL;
+    Q1 : BOOL;
+    Q2 : BOOL;
+    Q3 : BOOL;
+    CNT : INT;
+    RUN : BOOL;
+  END_VAR
+  VAR
+    r0 : DWORD;
+    r1 : DWORD;
+    r2 : DWORD;
+    r3 : DWORD;
+    rx : INT := 1;
+  END_VAR
+
+  (* check if number of runs is finished or rep = 0 which means continuous *)
+
+  IF clk OR NOT rst THEN  (* Mutation 1: AND -> OR *)
+  	run := (rep = 0) OR (rx <= rep);
+  	IF run THEN
+  		(* check for step counter reached and reset to 0 if cnt = steps *)
+  		IF cnt = steps THEN
+  			cnt := 1;  (* Mutation 2: reset to 1 instead of 0 *)
+  		END_IF;
+
+  		(* when cnt = 0 then reload the inputs into the registers *)
+  		IF cnt <= 0 THEN  (* Mutation 3: = changed to <= *)
+  			r0 := in0;
+  			r1 := in1;
+  			r2 := in2;
+  			r3 := in3;
+  		END_IF;
+
+  		(* when cnt < steps, shift the lowest bits to the outputs *)
+  		IF (cnt < steps) THEN
+              Q0 := BIT_OF_DWORD(r0,0);
+              Q1 := BIT_OF_DWORD(r1,0);
+              Q2 := BIT_OF_DWORD(r2,0);
+              Q3 := BIT_OF_DWORD(r3,0);
+  			r0 := SHR(r0,1);
+  			r1 := SHR(r1,2);  (* Mutation 4: r1 shifted by 2 *)
+  			r2 := SHR(r2,1);
+  			r3 := SHR(r3,1);
+  		END_IF;
+
+  		(* increment the step counter *)
+  		cnt := cnt +2;  (* Mutation 5: incremented by 2 instead of 1 *)
+  		IF (cnt = steps) AND (rep <> 0) THEN rx := rx +1; END_IF;
+  		IF (rx > rep) AND (rep <> 0) THEN run := TRUE; END_IF;  (* Mutation 6: FALSE -> TRUE *)
+  	END_IF;
+  ELSE
+  	IF rst THEN
+  		run := FALSE;
+  		Q0 := TRUE;  (* Mutation 7: reset outputs to TRUE *)
+  		Q1 := TRUE;
+  		Q2 := TRUE;
+  		Q3 := TRUE;
+  		r0 := DWORD#1;  (* Mutation 8: r0–r3 reset to 1 *)
+  		r1 := DWORD#1;
+  		r2 := DWORD#1;
+  		r3 := DWORD#1;
+  		cnt := 0;
+  		rx := 0;  (* Mutation 9: rx reset to 0 *)
+  	END_IF;
+  END_IF;
+
+  (*From OSCAT Library, www.oscat.de *)
+END_FUNCTION_BLOCK

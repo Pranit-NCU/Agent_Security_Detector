@@ -1,0 +1,156 @@
+{
+  "_provenance": {
+    "description": "Final reported results for the VERDICT study. These are the figures cited in the dissertation and the README.",
+    "run_environment": "Google Colab, single free T4 GPU, 4-bit quantised local inference plus one free-tier API judge",
+    "judge_panel": [
+      "Local/Phi-2 (2.7B, local, 4-bit)",
+      "Local/Qwen2.5-1.5B (local, 4-bit)",
+      "Mistral/Nemo (12B, free API tier)"
+    ],
+    "decoding": "greedy (deterministic)",
+    "note": "The per-run artefacts in datasets/processed/ are regenerated on every execution and reflect whatever panel was last active. This file is the pinned, citable summary. See results/README.md."
+  },
+
+  "python_securityeval": {
+    "benchmark": "SecurityEval (Siddiq & Santos, 2022)",
+    "n_samples": 121,
+    "n_cwe_categories": 69,
+    "all_positive": true,
+    "metric_note": "The benchmark contains only vulnerable samples, so precision is trivially 1.000 and ground-truth Cohen's kappa is degenerate. Recall is the discriminating metric; F1 is reported as the conventional summary.",
+
+    "exp_a_sast": {
+      "strategy": "SAST only (3 deterministic detectors)",
+      "precision": 1.0,
+      "recall": 0.091,
+      "f1": 0.167,
+      "cwe_coverage": "2/69"
+    },
+    "exp_b_single_llm": {
+      "strategy": "Single LLM judge, evaluated individually",
+      "per_judge": [
+        {"judge": "Local/Phi-2 (2.7B)", "precision": 1.0, "recall": 0.141, "f1": 0.246},
+        {"judge": "Local/Qwen2.5-1.5B", "precision": 1.0, "recall": 0.141, "f1": 0.246},
+        {"judge": "Mistral/Nemo (12B)", "precision": 1.0, "recall": 0.769, "f1": 0.869}
+      ],
+      "pairwise_cohens_kappa": {
+        "Phi-2 vs Qwen2.5-1.5B": 0.247,
+        "Phi-2 vs Mistral Nemo": 0.046,
+        "Qwen2.5-1.5B vs Mistral Nemo": 0.094
+      }
+    },
+    "exp_b_best_single_llm": {
+      "judge": "Mistral/Nemo",
+      "precision": 1.0,
+      "recall": 0.769,
+      "f1": 0.869
+    },
+    "exp_c_hybrid_best": {
+      "strategy": "Hybrid SAST OR LLM",
+      "judge": "Mistral/Nemo + SAST",
+      "precision": 1.0,
+      "recall": 0.793,
+      "f1": 0.885,
+      "note": "Best configuration observed anywhere in the Python study."
+    },
+    "exp_c_hybrid_all": [
+      {"configuration": "Phi-2 + SAST", "f1": 0.354, "recall": 0.215},
+      {"configuration": "Qwen2.5-1.5B + SAST", "f1": 0.354, "recall": 0.215},
+      {"configuration": "Mistral Nemo + SAST", "f1": 0.885, "recall": 0.793}
+    ],
+    "exp_d_consensus": {
+      "strategy": "Multi-LLM majority-vote consensus (3 judges)",
+      "precision": 1.0,
+      "recall": 0.736,
+      "f1": 0.848,
+      "fleiss_kappa": -0.078,
+      "fleiss_interpretation": "poor (worse than chance)",
+      "delta_f1_vs_best_single": -0.02,
+      "bootstrap_p_value": 0.96,
+      "significant": false,
+      "note": "The pivotal negative result: consensus did not beat the best single judge."
+    },
+    "exp_e_paired": {
+      "strategy": "Paired vulnerable-vs-patched discrimination",
+      "n_pairs": 9,
+      "sast_discrimination_accuracy": 0.222,
+      "consensus_discrimination_accuracy": 0.667,
+      "note": "The one task where consensus clearly beat static analysis, by a factor of three."
+    },
+    "exp_f_adversarial": {
+      "strategy": "Adversarial robustness of the consensus",
+      "n_subsample": 30,
+      "n_cases": 150,
+      "baseline_f1": 0.848,
+      "overall_robustness": 0.939,
+      "per_transform": [
+        {"transform": "PROMPT_INJECTION", "f1": 0.983, "robustness": 1.16, "degradation": -0.16, "effect": "No degradation (subsample artefact)"},
+        {"transform": "MISLEADING_COMMENTS", "f1": 0.636, "robustness": 0.751, "degradation": 0.249, "effect": "Largest degradation"},
+        {"transform": "VARIABLE_OBFUSCATION", "f1": 0.846, "robustness": 0.998, "degradation": 0.002, "effect": "Negligible"},
+        {"transform": "LOGIC_OBFUSCATION", "f1": 0.846, "robustness": 0.998, "degradation": 0.002, "effect": "Negligible"},
+        {"transform": "DEAD_CODE_CAMOUFLAGE", "f1": 0.667, "robustness": 0.787, "degradation": 0.213, "effect": "Moderate degradation"}
+      ],
+      "caveat": "Robustness above 1.0 for PROMPT_INJECTION is an artefact of the 30-sample stratified subsample interacting with which samples were perturbed. It is not a real strengthening under attack and should be re-measured on the full benchmark."
+    }
+  },
+
+  "plc_stmutants": {
+    "benchmark": "STMutants (Kabir, Islam & Lou, 2026, arXiv:2606.05499)",
+    "language": "IEC 61131-3 Structured Text",
+    "design": "differential mutant-vs-reference discrimination with identity controls",
+    "n_mutation_pairs": 60,
+    "n_identity_controls": 7,
+    "qualifying_programs": ["CRC", "DEC_TO_HEX", "FT_PIDW", "GEN_SIN", "Lambert_W", "Matrix", "Traffic_Controller"],
+    "excluded_programs": ["Flow_Meter", "GEN_BIT", "Sequense", "Tool_Changer"],
+    "metric": "bias_corrected = kill_rate - false_alarm_rate",
+    "metric_note": "The corpus is all-positive, so a raw detection rate rewards a response bias. Identity controls (reference compared against itself) must not be flagged; a model that flags them is penalised.",
+
+    "systems": [
+      {"system": "Mistral Nemo", "kill_rate": 0.567, "false_alarm_rate": 0.0, "bias_corrected": 0.567},
+      {"system": "Qwen2.5-1.5B", "kill_rate": 0.9, "false_alarm_rate": 0.429, "bias_corrected": 0.471},
+      {"system": "Phi-2", "kill_rate": 0.0, "false_alarm_rate": 0.0, "bias_corrected": 0.0},
+      {"system": "Ensemble (majority)", "kill_rate": 0.483, "false_alarm_rate": 0.0, "bias_corrected": 0.483},
+      {"system": "Hybrid (SAST OR ens.)", "kill_rate": 0.533, "false_alarm_rate": 0.143, "bias_corrected": 0.39},
+      {"system": "ST-SAST alone", "kill_rate": 0.1, "false_alarm_rate": 0.143, "bias_corrected": -0.043}
+    ],
+    "best_single_model": "Mistral Nemo",
+    "fleiss_kappa": -0.31,
+    "fleiss_interpretation": "poor (worse than chance)",
+
+    "two_judge_rescore": {
+      "note": "Phi-2 is dropped because its 2048-token context cannot hold the two-version differential prompt, so it abstains on every pair. This tests the fair question: do the two working judges together beat the best single model?",
+      "panel": ["Qwen2.5-1.5B", "Mistral Nemo"],
+      "cohens_kappa": -0.12,
+      "fusions": [
+        {"rule": "Mistral Nemo alone", "kill_rate": 0.567, "false_alarm_rate": 0.0, "bias_corrected": 0.567},
+        {"rule": "Ensemble (OR)", "kill_rate": 0.983, "false_alarm_rate": 0.429, "bias_corrected": 0.555},
+        {"rule": "Ensemble (weighted)", "kill_rate": 0.55, "false_alarm_rate": 0.0, "bias_corrected": 0.55},
+        {"rule": "Ensemble (AND)", "kill_rate": 0.483, "false_alarm_rate": 0.0, "bias_corrected": 0.483},
+        {"rule": "Qwen2.5-1.5B alone", "kill_rate": 0.9, "false_alarm_rate": 0.429, "bias_corrected": 0.471}
+      ],
+      "conclusion": "No fusion of the two working judges reaches Mistral Nemo alone. The two are anti-correlated (Cohen's kappa = -0.12), and combining anti-correlated raters cannot beat the better one."
+    },
+
+    "verification_confidence": {
+      "AUTO_FLAG": {"n": 6, "share": 0.1},
+      "REVIEW": {"n": 53, "share": 0.883},
+      "SILENT_PASS": {"n": 1, "share": 0.017},
+      "silent_pass_rate": 0.017,
+      "note": "Only 1 of 60 mutations escaped every detector, at the cost of routing 88% of cases to human review."
+    },
+
+    "response_bias_incident": {
+      "description": "On the first PLC run, scored naively as single-snippet detection on the all-positive corpus, the smallest model appeared best and the largest appeared worst.",
+      "naive_scores": {"Qwen2.5-1.5B": 1.0, "Mistral Nemo": 0.336},
+      "diagnosis": "Qwen2.5-1.5B labelled essentially every input faulty, which is correct on every sample of an all-positive corpus. Its confidence was flat at 0.95 and it flagged 43% of identity controls as deviating.",
+      "resolution": "The differential design with identity controls reversed the ranking. Do not cite the naive figures."
+    },
+
+    "not_implemented": "The symbolic-execution / runtime-monitoring arm of STMutants RQ-D requires an executable ST semantics (cf. K-ST, Wang et al. 2023) and is declared as future work rather than silently skipped."
+  },
+
+  "cross_domain_findings": [
+    "A single capable model beat every combination of the others in both domains, each time with inter-rater agreement no better than chance to explain why.",
+    "Evaluation design determined the conclusion: an all-positive benchmark inflated a weak model to a perfect score in both domains, and was only defused by an explicit negative signal (patched samples in Experiment E, identity controls in Experiment ST).",
+    "The contribution of static analysis flips sign between domains. It helped on Python security weaknesses and actively hurt on PLC functional mutations, so 'hybrid is best' is a statement about a domain rather than a general law."
+  ]
+}

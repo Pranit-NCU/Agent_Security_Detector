@@ -1,0 +1,219 @@
+FUNCTION_BLOCK SEQUENCE_8
+  VAR_INPUT
+    IN0 : BOOL := TRUE;      (* mutated: no change *)
+    IN1 : BOOL := TRUE;      (* mutated: no change *)
+    IN2 : BOOL := TRUE;      (* mutated: no change *)
+    IN3 : BOOL := TRUE;      (* mutated: no change *)
+    IN4 : BOOL := TRUE;      (* mutated: no change *)
+    IN5 : BOOL := TRUE;      (* mutated: no change *)
+    IN6 : BOOL := TRUE;      (* mutated: no change *)
+    IN7 : BOOL := TRUE;      (* mutated: no change *)
+    START : BOOL;            (* mutated: no change *)
+    RST : BOOL;              (* mutated: no change *)
+    WAIT0 : TIME;            (* mutated: no change *)
+    DELAY0 : TIME;           (* mutated: no change *)
+    WAIT1 : TIME;            (* mutated: no change *)
+    DELAY1 : TIME;           (* mutated: no change *)
+    WAIT2 : TIME;            (* mutated: no change *)
+    DELAY2 : TIME;           (* mutated: no change *)
+    WAIT3 : TIME;            (* mutated: no change *)
+    DELAY3 : TIME;           (* mutated: no change *)
+    WAIT4 : TIME;            (* mutated: no change *)
+    DELAY4 : TIME;           (* mutated: no change *)
+    WAIT5 : TIME;            (* mutated: no change *)
+    DELAY5 : TIME;           (* mutated: no change *)
+    WAIT6 : TIME;            (* mutated: no change *)
+    DELAY6 : TIME;           (* mutated: no change *)
+    WAIT7 : TIME;            (* mutated: no change *)
+    DELAY7 : TIME;           (* mutated: no change *)
+    STOP_ON_ERROR : BOOL;    (* mutated: no change *)
+  END_VAR
+  VAR_OUTPUT
+    Q0 : BOOL;
+    Q1 : BOOL;
+    Q2 : BOOL;
+    Q3 : BOOL;
+    Q4 : BOOL;
+    Q5 : BOOL;
+    Q6 : BOOL;
+    Q7 : BOOL;
+    QX : BOOL;
+    RUN : BOOL;
+    _STEP : INT := -1;
+    STATUS : BYTE;
+  END_VAR
+  VAR
+    last : TIME;
+    edge : BOOL;
+    tx : TIME;
+    init : BOOL;
+  END_VAR
+
+  tx := UDINT_TO_TIME(T_PLC_MS(en:=TRUE));  (* mutation: TRUE uppercase *)
+
+  (* initialize on startup *)
+  IF NOT init THEN
+    last := tx;
+    init := TRUE;
+    status := BYTE#110;
+  END_IF;
+
+  (* asynchronous reset *)
+  IF rst THEN
+    _step := -1;
+    Q0 := FALSE;
+    Q1 := FALSE;
+    Q2 := FALSE;
+    Q3 := FALSE;
+    Q4 := FALSE;
+    Q5 := FALSE;
+    Q6 := FALSE;
+    Q7 := FALSE;
+    status := BYTE#110;
+    run := FALSE;
+
+  (* edge on start input restarts the sequencer *)
+  ELSIF start AND NOT edge THEN
+    _step := 0;
+    last := tx;
+    status := BYTE#111;
+    Q0 := FALSE;
+    Q1 := FALSE;
+    Q2 := FALSE;
+    Q3 := FALSE;
+    Q4 := FALSE;
+    Q5 := FALSE;
+    Q6 := FALSE;
+    Q7 := FALSE;
+    run := TRUE;
+  END_IF;
+  edge := start;
+
+  (* check if stop on error is necessary *)
+  IF status > BYTE#0 AND status < BYTE#100 AND stop_on_error THEN RETURN; END_IF;
+
+  (* sequence is running *)
+  IF run AND _step = 0 THEN
+    IF NOT q0 AND in0 AND tx - last <= wait0 THEN
+      Q0 := TRUE;
+      last := tx;
+    ELSIF NOT q0 AND tx - last > wait0 THEN
+      status := BYTE#1;
+      run := FALSE;
+    ELSIF q0 AND tx - last >= delay0 THEN
+      _step := 1;
+      last := tx;
+    END_IF;
+  END_IF;
+
+  IF run AND _step = 1 THEN
+    IF NOT q1 AND in1 AND tx - last <= wait1 THEN
+      Q0 := FALSE;
+      Q1 := TRUE;
+      last := tx;
+    ELSIF NOT q1 AND Tx - last > wait1 THEN  (* mutation: Tx uppercase *)
+      status := BYTE#2;
+      q0 := FALSE;
+      run := FALSE;
+    ELSIF q1 AND tx - last >= delay1 THEN
+      _step := 2;
+      last := tx;
+    END_IF;
+  END_IF;
+
+  IF run AND _step = 2 THEN
+    IF NOT q2 AND in2 AND tx - last <= wait2 THEN
+      Q1 := FALSE;
+      Q2 := TRUE;
+      last := tx;
+    ELSIF NOT q2 AND Tx - last > wait2 THEN  (* mutation: Tx uppercase *)
+      status := BYTE#3;
+      q1 := FALSE;
+      run := FALSE;
+    ELSIF q2 AND tx - last >= delay2 THEN
+      _step := 3;
+      last := tx;
+    END_IF;
+  END_IF;
+
+  IF run AND _step = 3 THEN
+    IF NOT q3 AND in3 AND tx - last <= wait3 THEN
+      Q2 := FALSE;
+      Q3 := TRUE;
+      last := tx;
+    ELSIF NOT q3 AND Tx - last > wait3 THEN  (* mutation: Tx uppercase *)
+      status := BYTE#4;
+      q2 := FALSE;
+      run := FALSE;
+    ELSIF q3 AND tx - last >= delay3 THEN
+      _step := 4;
+      last := tx;
+    END_IF;
+  END_IF;
+
+  IF run AND _step = 4 THEN
+    IF NOT q4 AND in4 AND tx - last <= wait4 THEN
+      Q3 := FALSE;
+      Q4 := TRUE;
+      last := tx;
+    ELSIF NOT q4 AND Tx - last > wait4 THEN
+      status := BYTE#5;
+      q3 := FALSE;
+      run := FALSE;
+    ELSIF q4 AND tx - last >= WAIT4 THEN   (* mutation: WAIT4 uppercase *)
+      _step := 5;
+      last := tx;
+    END_IF;
+  END_IF;
+
+  IF run AND _step = 5 THEN
+    IF NOT q5 AND in5 AND tx - last <= DELAY4 THEN  (* mutation: DELAY4 uppercase *)
+      Q4 := FALSE;
+      Q5 := TRUE;
+      last := tx;
+    ELSIF NOT q5 AND Tx - last > DELAY4 THEN        (* mutation: Tx uppercase *)
+      status := BYTE#6;
+      q4 := FALSE;
+      run := FALSE;
+    ELSIF q5 AND tx - last >= WAIT5 THEN
+      _step := 6;
+      last := tx;
+    END_IF;
+  END_IF;
+
+  IF run AND _step = 6 THEN
+    IF NOT q6 AND in6 AND tx - last <= DELAY5 THEN  (* mutation: DELAY5 uppercase *)
+      Q5 := FALSE;
+      Q6 := TRUE;
+      last := tx;
+    ELSIF NOT q6 AND Tx - last > DELAY5 THEN        (* mutation: Tx uppercase *)
+      status := BYTE#7;
+      q5 := FALSE;
+      run := FALSE;
+    ELSIF q6 AND tx - last >= WAIT6 THEN
+      _step := 7;
+      last := tx;
+    END_IF;
+  END_IF;
+
+  IF run AND _step = 7 THEN
+    IF NOT q7 AND in7 AND tx - last <= DELAY6 THEN  (* mutation: DELAY6 uppercase *)
+      Q6 := FALSE;
+      Q7 := TRUE;
+      last := tx;
+    ELSIF NOT q7 AND Tx - last > DELAY6 THEN        (* mutation: Tx uppercase *)
+      status := BYTE#8;
+      q6 := FALSE;
+      run := FALSE;
+    ELSIF q7 AND tx - last >= WAIT7 THEN
+      _step := -1;
+      Q7 := FALSE;
+      Run := FALSE;       (* mutation: Run uppercase *)
+      status := BYTE#110;
+    END_IF;
+  END_IF;
+
+  QX := q0 OR q1 OR q2 OR q3 OR q4 OR q5 OR q6 OR q7;
+
+  (*From OSCAT Library, www.oscat.de *)
+END_FUNCTION_BLOCK

@@ -1,0 +1,38 @@
+FUNCTION_BLOCK LAMBERT_W
+  VAR_INPUT
+    X : REAL;
+  END_VAR
+  VAR_OUTPUT
+    OUT : REAL;
+  END_VAR
+  VAR
+    w : REAL;
+    i : INT;
+    we : REAL;
+    w1e : REAL;
+    ewx : REAL;
+    last : DWORD;
+  END_VAR
+
+  IF x < -0.367879441171442 THEN
+  	OUT := -1000.0;
+  	RETURN;
+  ELSIF x = 0.0 THEN
+  	RETURN;
+  ELSIF x <= 500.0 THEN
+  	w := LN(x + 1.0);
+  	w := 0.665 * (1.0 + 0.0196 * w) * w + 0.04; // Mutation: 0.0195 -> 0.0196
+  ELSE
+  	w := LN(x - 4.0) - (1.0 - 1.0/LN(x)) * LN(LN(x));
+  END_IF;
+
+  FOR i := 0 TO 5 DO
+  	ewx := EXP(w);
+  	we := w * ewx - x;
+  	w1e := (w+1.0) * ewx;
+  	last := REAL_TO_DWORD(w) AND DWORD#16#FFFF_FFFC;
+  	w := w - (we / (w1e - (w+2.0) * we / (2.0 * w + 2.0)));
+  	IF (REAL_TO_DWORD(w) AND DWORD#16#FFFF_FFFD) = last THEN EXIT; END_IF; // Mutation: mask changed
+  END_FOR;
+  OUT := w;
+END_FUNCTION_BLOCK
