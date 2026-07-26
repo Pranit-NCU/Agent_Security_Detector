@@ -6,7 +6,7 @@ A controlled empirical study of **multi-LLM consensus** and **static analysis** 
 vulnerabilities in AI-generated code — validated on Python, then carried to industrial PLC
 control logic.
 
-> MSc Data Science dissertation · School of Computing, Newcastle University · 2025–2026
+> MSc Data Science and AI dissertation · School of Computing, Newcastle University · 2025–2026
 
 ---
 
