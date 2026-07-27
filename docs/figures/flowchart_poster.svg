@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1300" width="1000" height="1300" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#14171C"/>
+    </marker>
+    <marker id="arwG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0F7B5F"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="1300" fill="#F2EFE7"/>
+
+  <!-- ================= TITLE ================= -->
+  <text x="50" y="62" font-size="40" font-weight="bold" fill="#16305C" letter-spacing="-0.5">HOW THE STUDY WAS RUN</text>
+  <text x="50" y="96" font-size="21" fill="#5A6072">Six controlled experiments, one cached inference pass, two domains.</text>
+
+  <!-- ================= 1. INPUT ================= -->
+  <rect x="150" y="130" width="700" height="86" rx="6" fill="#16305C"/>
+  <text x="500" y="166" text-anchor="middle" font-size="25" font-weight="bold" fill="#FFFFFF">INPUT · AI-generated code</text>
+  <text x="500" y="196" text-anchor="middle" font-size="20" fill="#CBD8EE">SecurityEval — 121 vulnerable samples · 69 CWE types</text>
+
+  <line x1="500" y1="216" x2="500" y2="258" stroke="#14171C" stroke-width="3" marker-end="url(#arw)"/>
+
+  <!-- ================= 2. TWO DETECTORS ================= -->
+  <rect x="70" y="262" width="390" height="146" rx="6" fill="#FFFFFF" stroke="#16305C" stroke-width="3"/>
+  <text x="265" y="298" text-anchor="middle" font-size="23" font-weight="bold" fill="#16305C">STATIC ANALYSIS</text>
+  <text x="265" y="330" text-anchor="middle" font-size="19" fill="#14171C">3 deterministic detectors</text>
+  <text x="265" y="356" text-anchor="middle" font-size="19" fill="#14171C">CWE-89 · 798 · 287</text>
+  <text x="265" y="388" text-anchor="middle" font-size="17" font-style="italic" fill="#5A6072">precise, but narrow by design</text>
+
+  <rect x="540" y="262" width="390" height="146" rx="6" fill="#FFFFFF" stroke="#0F7B5F" stroke-width="3"/>
+  <text x="735" y="298" text-anchor="middle" font-size="23" font-weight="bold" fill="#0F7B5F">3 LLM JUDGES</text>
+  <text x="735" y="330" text-anchor="middle" font-size="19" fill="#14171C">Phi-2 2.7B · Qwen2.5 1.5B  (local)</text>
+  <text x="735" y="356" text-anchor="middle" font-size="19" fill="#14171C">Mistral Nemo 12B  (API)</text>
+  <text x="735" y="388" text-anchor="middle" font-size="17" font-style="italic" fill="#5A6072">one per model family</text>
+
+  <!-- cache note under judges -->
+  <rect x="540" y="424" width="390" height="74" rx="6" fill="#E6F0EC" stroke="#0F7B5F" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="735" y="452" text-anchor="middle" font-size="18" font-weight="bold" fill="#0F7B5F">CACHED ONCE, REUSED EVERYWHERE</text>
+  <text x="735" y="478" text-anchor="middle" font-size="17" fill="#14171C">crash-safe · free Colab T4 · £0</text>
+  <line x1="735" y1="408" x2="735" y2="420" stroke="#0F7B5F" stroke-width="3" marker-end="url(#arwG)"/>
+
+  <!-- merge arrows -->
+  <path d="M 265 408 L 265 540 L 460 540" fill="none" stroke="#14171C" stroke-width="3"/>
+  <path d="M 735 498 L 735 540 L 540 540" fill="none" stroke="#14171C" stroke-width="3"/>
+  <line x1="500" y1="540" x2="500" y2="586" stroke="#14171C" stroke-width="3" marker-end="url(#arw)"/>
+
+  <!-- ================= 3. SIX EXPERIMENTS ================= -->
+  <rect x="60" y="590" width="880" height="200" rx="6" fill="#FFFFFF" stroke="#14171C" stroke-width="3"/>
+  <text x="500" y="628" text-anchor="middle" font-size="25" font-weight="bold" fill="#14171C">SIX STRATEGIES, COMPARED HEAD-TO-HEAD</text>
+
+  <rect x="88" y="648" width="264" height="60" rx="4" fill="#F2EFE7" stroke="#B8C0D0" stroke-width="1.5"/>
+  <text x="106" y="674" font-size="21" font-weight="bold" fill="#16305C">A</text>
+  <text x="134" y="674" font-size="19" fill="#14171C">SAST only</text>
+  <text x="106" y="697" font-size="16" fill="#5A6072">deterministic baseline</text>
+
+  <rect x="368" y="648" width="264" height="60" rx="4" fill="#F2EFE7" stroke="#B8C0D0" stroke-width="1.5"/>
+  <text x="386" y="674" font-size="21" font-weight="bold" fill="#16305C">B</text>
+  <text x="414" y="674" font-size="19" fill="#14171C">Single LLM</text>
+  <text x="386" y="697" font-size="16" fill="#5A6072">each judge alone</text>
+
+  <rect x="648" y="648" width="264" height="60" rx="4" fill="#E6F0EC" stroke="#0F7B5F" stroke-width="2"/>
+  <text x="666" y="674" font-size="21" font-weight="bold" fill="#0F7B5F">C</text>
+  <text x="694" y="674" font-size="19" font-weight="bold" fill="#14171C">Hybrid SAST + LLM</text>
+  <text x="666" y="697" font-size="16" fill="#5A6072">the one to beat</text>
+
+  <rect x="88" y="716" width="264" height="60" rx="4" fill="#F2EFE7" stroke="#B8C0D0" stroke-width="1.5"/>
+  <text x="106" y="742" font-size="21" font-weight="bold" fill="#16305C">D</text>
+  <text x="134" y="742" font-size="19" fill="#14171C">Consensus vote</text>
+  <text x="106" y="765" font-size="16" fill="#5A6072">3 judges, majority</text>
+
+  <rect x="368" y="716" width="264" height="60" rx="4" fill="#F2EFE7" stroke="#B8C0D0" stroke-width="1.5"/>
+  <text x="386" y="742" font-size="21" font-weight="bold" fill="#16305C">E</text>
+  <text x="414" y="742" font-size="19" fill="#14171C">Vuln vs. its patch</text>
+  <text x="386" y="765" font-size="16" fill="#5A6072">discrimination</text>
+
+  <rect x="648" y="716" width="264" height="60" rx="4" fill="#F2EFE7" stroke="#B8C0D0" stroke-width="1.5"/>
+  <text x="666" y="742" font-size="21" font-weight="bold" fill="#16305C">F</text>
+  <text x="694" y="742" font-size="19" fill="#14171C">Adversarial</text>
+  <text x="666" y="765" font-size="16" fill="#5A6072">5 code transforms</text>
+
+  <line x1="500" y1="790" x2="500" y2="832" stroke="#14171C" stroke-width="3" marker-end="url(#arw)"/>
+
+  <!-- ================= 4. STATISTICS ================= -->
+  <rect x="150" y="836" width="700" height="76" rx="6" fill="#FFFFFF" stroke="#14171C" stroke-width="2.5"/>
+  <text x="500" y="868" text-anchor="middle" font-size="22" font-weight="bold" fill="#14171C">MEASURE AGREEMENT, NOT JUST ACCURACY</text>
+  <text x="500" y="896" text-anchor="middle" font-size="19" fill="#5A6072">Cohen&#8217;s &#954; · Fleiss&#8217; &#954; · paired bootstrap (10,000 resamples)</text>
+
+  <line x1="500" y1="912" x2="500" y2="954" stroke="#14171C" stroke-width="3" marker-end="url(#arw)"/>
+
+  <!-- ================= 5. PYTHON RESULT ================= -->
+  <rect x="60" y="958" width="880" height="94" rx="6" fill="#E6F0EC" stroke="#0F7B5F" stroke-width="3"/>
+  <text x="88" y="992" font-size="22" font-weight="bold" fill="#0F7B5F">PYTHON RESULT</text>
+  <text x="88" y="1024" font-size="20" fill="#14171C">Hybrid wins at F1 = 0.885. The consensus loses to the best single judge.</text>
+  <text x="912" y="1004" text-anchor="end" font-size="34" font-weight="bold" fill="#0F7B5F">0.885</text>
+
+  <line x1="500" y1="1052" x2="500" y2="1104" stroke="#B4442E" stroke-width="3" marker-end="url(#arw)"/>
+  <rect x="326" y="1062" width="348" height="30" rx="4" fill="#F2EFE7"/>
+  <text x="500" y="1084" text-anchor="middle" font-size="18" font-style="italic" fill="#B4442E">so we tried the same recipe on PLC code</text>
+
+  <!-- ================= 6. PLC RESULT ================= -->
+  <rect x="60" y="1108" width="880" height="130" rx="6" fill="#FFFFFF" stroke="#B4442E" stroke-width="3"/>
+  <text x="88" y="1142" font-size="22" font-weight="bold" fill="#B4442E">PLC RESULT — IT DID NOT TRANSFER</text>
+  <text x="88" y="1174" font-size="20" fill="#14171C">The all-positive benchmark let the weakest model &#8220;win&#8221; at 1.000 by always saying</text>
+  <text x="88" y="1200" font-size="20" fill="#14171C">&#8220;faulty&#8221;. Differential scoring with identity controls reversed the ranking, and</text>
+  <text x="88" y="1226" font-size="20" fill="#14171C">static analysis went <tspan font-weight="bold" fill="#B4442E">negative</tspan> (&#8722;0.043). Hybrid finished fourth.</text>
+
+  <!-- ================= TAKEAWAY ================= -->
+  <text x="500" y="1276" text-anchor="middle" font-size="21" font-weight="bold" fill="#16305C">The metric decides the winner — check whether it measures skill, or rewards a habit.</text>
+</svg>

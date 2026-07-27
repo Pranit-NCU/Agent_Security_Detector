@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 1680" width="1020" height="1680" font-family="Times New Roman, Times, serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000000"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555555"/>
+    </marker>
+  </defs>
+
+  <rect width="1020" height="1680" fill="#FFFFFF"/>
+
+  <!-- ============ STAGE 0 : DATA ============ -->
+  <rect x="30" y="30" width="960" height="128" fill="none" stroke="#000000" stroke-width="1.6"/>
+  <rect x="30" y="30" width="176" height="26" fill="#000000"/>
+  <text x="42" y="49" font-size="16" font-weight="bold" fill="#FFFFFF">STAGE 0 — DATA</text>
+
+  <rect x="52" y="72" width="288" height="68" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="196" y="96" text-anchor="middle" font-size="16" font-weight="bold">SecurityEval</text>
+  <text x="196" y="118" text-anchor="middle" font-size="15">121 vulnerable Python samples</text>
+  <text x="196" y="136" text-anchor="middle" font-size="14" fill="#444444">69 CWE types · all-positive</text>
+
+  <rect x="366" y="72" width="288" height="68" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="510" y="96" text-anchor="middle" font-size="16" font-weight="bold">Seed paired set</text>
+  <text x="510" y="118" text-anchor="middle" font-size="15">25 samples, 9 matched pairs</text>
+  <text x="510" y="136" text-anchor="middle" font-size="14" fill="#444444">vulnerable + patched twin</text>
+
+  <rect x="680" y="72" width="288" height="68" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="824" y="96" text-anchor="middle" font-size="16" font-weight="bold">STMutants (PLC)</text>
+  <text x="824" y="118" text-anchor="middle" font-size="15">110 Structured Text mutants</text>
+  <text x="824" y="136" text-anchor="middle" font-size="14" fill="#444444">11 programs · all-positive</text>
+
+  <line x1="353" y1="158" x2="353" y2="192" stroke="#000000" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="824" y1="158" x2="824" y2="192" stroke="#000000" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- ============ STAGE 1 : PRE-PROCESSING ============ -->
+  <rect x="30" y="196" width="960" height="176" fill="none" stroke="#000000" stroke-width="1.6"/>
+  <rect x="30" y="196" width="286" height="26" fill="#000000"/>
+  <text x="42" y="215" font-size="16" font-weight="bold" fill="#FFFFFF">STAGE 1 — PRE-PROCESSING</text>
+
+  <rect x="52" y="238" width="602" height="60" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+  <text x="353" y="262" text-anchor="middle" font-size="15" font-weight="bold">Python path: normalise schema, stratify by difficulty</text>
+  <text x="353" y="284" text-anchor="middle" font-size="14" fill="#444444">Exp F additionally derives 5 semantics-preserving transforms per sample</text>
+
+  <rect x="680" y="238" width="288" height="122" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+  <text x="824" y="258" text-anchor="middle" font-size="15" font-weight="bold">PLC path (ST only)</text>
+  <text x="694" y="280" font-size="14">1. Strip 252 ground-truth markers</text>
+  <text x="708" y="298" font-size="13" fill="#444444">assert none survive — else abort</text>
+  <text x="694" y="320" font-size="14">2. Reconstruct reference per program</text>
+  <text x="708" y="338" font-size="13" fill="#444444">per-line majority vote over its mutants</text>
+  <text x="694" y="356" font-size="14">3. Build 60 pairs + 7 identity controls</text>
+
+  <line x1="353" y1="298" x2="353" y2="404" stroke="#000000" stroke-width="1.6" marker-end="url(#a)"/>
+  <line x1="824" y1="360" x2="824" y2="404" stroke="#000000" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- ============ STAGE 2 : PHASE 1 INFERENCE ============ -->
+  <rect x="30" y="408" width="960" height="430" fill="none" stroke="#000000" stroke-width="1.6"/>
+  <rect x="30" y="408" width="596" height="26" fill="#000000"/>
+  <text x="42" y="427" font-size="16" font-weight="bold" fill="#FFFFFF">STAGE 2 — PHASE 1: WARM THE JUDGE CACHE (expensive, once)</text>
+
+  <!-- decision diamond -->
+  <polygon points="150,462 262,505 150,548 38,505" fill="#FFFFFF" stroke="#000000" stroke-width="1.4"/>
+  <text x="150" y="500" text-anchor="middle" font-size="14" font-weight="bold">verdict already</text>
+  <text x="150" y="518" text-anchor="middle" font-size="14" font-weight="bold">in cache?</text>
+
+  <!-- NO -> generate -->
+  <text x="278" y="498" font-size="14" font-weight="bold">NO</text>
+  <line x1="262" y1="505" x2="326" y2="505" stroke="#000000" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- YES -> bypass straight to cache -->
+  <text x="106" y="572" font-size="14" font-weight="bold">YES</text>
+  <text x="60" y="592" font-size="13" fill="#555555">reuse — no model call</text>
+  <path d="M 150 548 L 150 866 L 352 866" fill="none" stroke="#555555" stroke-width="1.5" marker-end="url(#ag)"/>
+
+  <!-- model loop -->
+  <rect x="330" y="448" width="638" height="152" fill="#F4F4F4" stroke="#000000" stroke-width="1.4"/>
+  <text x="649" y="470" text-anchor="middle" font-size="15" font-weight="bold">For each local model, one at a time (15 GB VRAM limit)</text>
+  <rect x="352" y="486" width="180" height="50" fill="#FFFFFF" stroke="#000000" stroke-width="1.1"/>
+  <text x="442" y="508" text-anchor="middle" font-size="14">load model</text>
+  <text x="442" y="526" text-anchor="middle" font-size="13" fill="#444444">4-bit quantised</text>
+  <rect x="560" y="486" width="180" height="50" fill="#FFFFFF" stroke="#000000" stroke-width="1.1"/>
+  <text x="650" y="508" text-anchor="middle" font-size="14">generate verdicts</text>
+  <text x="650" y="526" text-anchor="middle" font-size="13" fill="#444444">greedy decoding</text>
+  <rect x="768" y="486" width="180" height="50" fill="#FFFFFF" stroke="#000000" stroke-width="1.1"/>
+  <text x="858" y="508" text-anchor="middle" font-size="14">unload</text>
+  <text x="858" y="526" text-anchor="middle" font-size="13" fill="#444444">free VRAM</text>
+  <line x1="532" y1="511" x2="556" y2="511" stroke="#000000" stroke-width="1.4" marker-end="url(#a)"/>
+  <line x1="740" y1="511" x2="764" y2="511" stroke="#000000" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M 858 536 L 858 562 L 442 562 L 442 538" fill="none" stroke="#000000" stroke-width="1.2" marker-end="url(#a)" stroke-dasharray="5 3"/>
+  <text x="650" y="582" text-anchor="middle" font-size="13" fill="#444444">next model</text>
+
+  <line x1="649" y1="600" x2="649" y2="618" stroke="#000000" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- API judge -->
+  <rect x="330" y="622" width="638" height="44" fill="#FFFFFF" stroke="#000000" stroke-width="1.2"/>
+  <text x="649" y="649" text-anchor="middle" font-size="14">API judge (Mistral Nemo) called lazily, subject to the circuit breaker</text>
+
+  <line x1="649" y1="666" x2="649" y2="684" stroke="#000000" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- persistence -->
+  <rect x="330" y="688" width="638" height="130" fill="#FFFFFF" stroke="#000000" stroke-width="1.6"/>
+  <text x="649" y="710" text-anchor="middle" font-size="15" font-weight="bold">Persistence guarantees</text>
+  <text x="352" y="734" font-size="14">Atomic write after every batch:</text>
+  <text x="366" y="753" font-size="13.5" fill="#333333">tmp &#8594; fsync &#8594; rotate backup &#8594; os.replace</text>
+  <text x="352" y="777" font-size="14">Errored verdicts are never cached, so an interrupted run resumes</text>
+  <text x="352" y="800" font-size="14">Circuit breaker: 3 consecutive 429s &#8594; judge skipped for the session</text>
+
+  <path d="M 649 818 L 649 842" fill="none" stroke="#000000" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- cache store -->
+  <ellipse cx="510" cy="866" rx="158" ry="24" fill="#EAEAEA" stroke="#000000" stroke-width="1.6"/>
+  <text x="510" y="872" text-anchor="middle" font-size="15" font-weight="bold">judge_cache.json</text>
+  <line x1="510" y1="890" x2="510" y2="920" stroke="#000000" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- ============ STAGE 3 : PHASE 2 EXPERIMENTS ============ -->
+  <rect x="30" y="924" width="960" height="298" fill="none" stroke="#000000" stroke-width="1.6"/>
+  <rect x="30" y="924" width="590" height="26" fill="#000000"/>
+  <text x="42" y="943" font-size="16" font-weight="bold" fill="#FFFFFF">STAGE 3 — PHASE 2: SCORE THE EXPERIMENTS (cheap, minutes)</text>
+
+  <text x="52" y="978" font-size="15" font-style="italic" fill="#444444">Every experiment reads from the cache; no experiment re-derives a verdict.</text>
+
+  <rect x="52" y="990" width="290" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="68" y="1012" font-size="15" font-weight="bold">A</text>
+  <text x="92" y="1012" font-size="15">SAST only</text>
+  <text x="68" y="1032" font-size="13.5" fill="#444444">deterministic baseline · recall, coverage</text>
+
+  <rect x="366" y="990" width="290" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="382" y="1012" font-size="15" font-weight="bold">B</text>
+  <text x="406" y="1012" font-size="15">Single LLM judge</text>
+  <text x="382" y="1032" font-size="13.5" fill="#444444">each judge alone · recall, Cohen &#954;</text>
+
+  <rect x="680" y="990" width="290" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="696" y="1012" font-size="15" font-weight="bold">C</text>
+  <text x="720" y="1012" font-size="15">Hybrid SAST + LLM</text>
+  <text x="696" y="1032" font-size="13.5" fill="#444444">OR / AND fusion rules · F1</text>
+
+  <rect x="52" y="1054" width="290" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="68" y="1076" font-size="15" font-weight="bold">D</text>
+  <text x="92" y="1076" font-size="15">Multi-LLM consensus</text>
+  <text x="68" y="1096" font-size="13.5" fill="#444444">majority vote · Fleiss &#954;, bootstrap</text>
+
+  <rect x="366" y="1054" width="290" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="382" y="1076" font-size="15" font-weight="bold">E</text>
+  <text x="406" y="1076" font-size="15">Paired discrimination</text>
+  <text x="382" y="1096" font-size="13.5" fill="#444444">flag vuln AND clear its patch</text>
+
+  <rect x="680" y="1054" width="290" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="696" y="1076" font-size="15" font-weight="bold">F</text>
+  <text x="720" y="1076" font-size="15">Adversarial robustness</text>
+  <text x="696" y="1096" font-size="13.5" fill="#444444">5 transforms vs. baseline F1</text>
+
+  <rect x="52" y="1120" width="918" height="86" fill="#FFFFFF" stroke="#000000" stroke-width="1.8"/>
+  <text x="68" y="1142" font-size="15" font-weight="bold">ST</text>
+  <text x="98" y="1142" font-size="15" font-weight="bold">PLC differential study — mutant vs. reconstructed reference, with identity controls</text>
+  <text x="68" y="1164" font-size="13.5" fill="#333333">Tier 1 per-model &#183; Tier 2 ensemble + Fleiss/Cohen &#954; + bootstrap &#183; Tier 3 hybrid ST-SAST &#183; Tier 4 verification triage</text>
+  <text x="68" y="1189" font-size="14" font-style="italic">Score = kill rate &#8722; false-alarm rate, so a model that flags identical code as &#8220;deviating&#8221; is penalised.</text>
+
+  <line x1="510" y1="1222" x2="510" y2="1256" stroke="#000000" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- ============ STAGE 4 : STATISTICS ============ -->
+  <rect x="30" y="1260" width="960" height="126" fill="none" stroke="#000000" stroke-width="1.6"/>
+  <rect x="30" y="1260" width="252" height="26" fill="#000000"/>
+  <text x="42" y="1279" font-size="16" font-weight="bold" fill="#FFFFFF">STAGE 4 — STATISTICS</text>
+
+  <rect x="52" y="1302" width="222" height="66" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="163" y="1326" text-anchor="middle" font-size="15" font-weight="bold">Cohen&#8217;s &#954;</text>
+  <text x="163" y="1348" text-anchor="middle" font-size="13.5">pairwise agreement</text>
+  <text x="163" y="1364" text-anchor="middle" font-size="13" fill="#444444">beyond chance</text>
+
+  <rect x="288" y="1302" width="222" height="66" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="399" y="1326" text-anchor="middle" font-size="15" font-weight="bold">Fleiss&#8217; &#954;</text>
+  <text x="399" y="1348" text-anchor="middle" font-size="13.5">whole-panel agreement</text>
+  <text x="399" y="1364" text-anchor="middle" font-size="13" fill="#444444">Landis&#8211;Koch bands</text>
+
+  <rect x="524" y="1302" width="222" height="66" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="635" y="1326" text-anchor="middle" font-size="15" font-weight="bold">Paired bootstrap</text>
+  <text x="635" y="1348" text-anchor="middle" font-size="13.5">10,000 resamples</text>
+  <text x="635" y="1364" text-anchor="middle" font-size="13" fill="#444444">one-sided p-value</text>
+
+  <rect x="760" y="1302" width="210" height="66" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="865" y="1326" text-anchor="middle" font-size="15" font-weight="bold">Benjamini&#8211;Hochberg</text>
+  <text x="865" y="1348" text-anchor="middle" font-size="13.5">FDR control</text>
+  <text x="865" y="1364" text-anchor="middle" font-size="13" fill="#444444">multiple comparisons</text>
+
+  <line x1="510" y1="1386" x2="510" y2="1420" stroke="#000000" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- ============ STAGE 5 : OUTPUTS ============ -->
+  <rect x="30" y="1424" width="960" height="112" fill="none" stroke="#000000" stroke-width="1.6"/>
+  <rect x="30" y="1424" width="222" height="26" fill="#000000"/>
+  <text x="42" y="1443" font-size="16" font-weight="bold" fill="#FFFFFF">STAGE 5 — OUTPUTS</text>
+
+  <rect x="52" y="1466" width="288" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="196" y="1488" text-anchor="middle" font-size="15">exp_*_results.json</text>
+  <text x="196" y="1508" text-anchor="middle" font-size="13.5" fill="#444444">machine-readable, per run</text>
+
+  <rect x="366" y="1466" width="288" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="510" y="1488" text-anchor="middle" font-size="15">exp_*_summary.md</text>
+  <text x="510" y="1508" text-anchor="middle" font-size="13.5" fill="#444444">dissertation-ready tables</text>
+
+  <rect x="680" y="1466" width="288" height="52" fill="#F4F4F4" stroke="#000000" stroke-width="1.2"/>
+  <text x="824" y="1488" text-anchor="middle" font-size="15">figures (300 dpi PNG)</text>
+  <text x="824" y="1508" text-anchor="middle" font-size="13.5" fill="#444444">colour-blind safe palette</text>
+
+  <!-- caption -->
+  <text x="30" y="1578" font-size="15" font-style="italic">Figure X. The VERDICT experimental pipeline. Inference (Stage 2) is separated from scoring (Stage 3) so that the</text>
+  <text x="30" y="1600" font-size="15" font-style="italic">expensive, failure-prone step runs exactly once: every experiment then reads the same cached verdicts, which makes</text>
+  <text x="30" y="1622" font-size="15" font-style="italic">the comparison between strategies exact rather than merely repeatable, and allows an interrupted run to resume from</text>
+  <text x="30" y="1644" font-size="15" font-style="italic">the last completed batch rather than restarting.</text>
+</svg>

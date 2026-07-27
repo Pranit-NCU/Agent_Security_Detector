@@ -3,10 +3,10 @@
 **V**ulnerability **E**valuation by **R**easoning, **C**onsensus, **I**ntegration, and **D**etection **T**iers
 
 A controlled empirical study of **multi-LLM consensus** and **static analysis** for detecting
-vulnerabilities in AI-generated code - validated on Python, then carried to industrial PLC
+vulnerabilities in AI-generated code — validated on Python, then carried to industrial PLC
 control logic.
 
-> MSc Data Science and AI dissertation · School of Computing, Newcastle University · 2025–2026
+> MSc Data Science dissertation · School of Computing, Newcastle University · 2025–2026
 
 ---
 
@@ -97,25 +97,30 @@ flowchart TD
     OUT --> FIG["Figures + statistics<br/>Cohen κ · Fleiss κ · paired bootstrap"]
 ```
 
+> **Print-ready versions of this diagram** live in [`docs/figures/`](docs/figures/) as editable
+> SVG plus 2040 px PNG: [`flowchart_report`](docs/figures/flowchart_report.svg) (detailed, for
+> the dissertation) and [`flowchart_poster`](docs/figures/flowchart_poster.svg) (high-level, for
+> the conference poster). Both open directly in Word, PowerPoint, Figma and Illustrator.
+
 **Why the cache matters.** Experiments B, C, D and F each independently ask *"is sample s
 vulnerable?"* of the same judges over the same benchmark. Run naively that is ~726 model calls
 where 242 would do. Keying on `(judge, sample_id, transform)` removes the redundancy.
 
 **Why it is crash-safe.** Free Colab runtimes disconnect without warning, often hours into a
 run. The cache writes `.tmp` → `fsync` → rotate to `.backup` → `os.replace` (atomic), so an
-interruption at *any* point leaves either the previous good file or the backup fully intact,
+interruption at *any* point leaves either the previous good file or the backup fully intact —
 never a truncated JSON that the next run would silently misread as empty. Errored verdicts are
 never cached, so a rate-limit response costs only the in-flight call. This was validated by
 deliberately killing runs mid-flight and confirming zero data loss.
 
 **Circuit breaker.** After 3 *consecutive* HTTP 429s, a judge is skipped for the session.
 Without this, an exhausted quota is retried on every remaining sample with a 65 s backoff each
-time, roughly 195 s of dead waiting per sample, for nothing.
+time — roughly 195 s of dead waiting per sample, for nothing.
 
 ### The engineering pivot (and why it is a contribution)
 
 The original design routed every judge through a commercial LLM API. It failed on rate limits:
-the free tier allowed a few dozen requests per day, and one full A-F pass needs ~2,000 judge
+the free tier allowed a few dozen requests per day, and one full A–F pass needs ~2,000 judge
 calls. A complete run would have taken weeks, and multi-day runs are fragile.
 
 The pipeline was therefore relocated onto **free, locally hosted open-weight models under
@@ -169,7 +174,7 @@ The narrow coverage is **intentional** — it is what makes the LLM comparison m
 | Local / Qwen2.5-1.5B | 1.000 | 0.141 | 0.246 |
 | **Mistral / Nemo (12B)** | **1.000** | **0.769** | **0.869** |
 
-Mistral Nemo detected 77% of vulnerabilities - more than **five times** the recall of either
+Mistral Nemo detected 77% of vulnerabilities — more than **five times** the recall of either
 small model. Pairwise agreement was low throughout (Cohen κ = 0.247 between the two small
 models; 0.046 and 0.094 between each small model and Mistral). The judges differ in strength
 *and* disagree about which specific snippets are vulnerable — the first hint that a naive
@@ -184,7 +189,7 @@ consensus would struggle.
 | **Mistral Nemo + SAST** | **0.885** | **0.793** |
 
 The OR rule improved recall for every judge at no precision cost on this benchmark. The AND
-rule collapsed recall, as expected - it is bounded by SAST's narrow coverage. SAST contributes
+rule collapsed recall, as expected — it is bounded by SAST's narrow coverage. SAST contributes
 a handful of high-precision detections that even a strong model occasionally misses.
 
 ### Experiment D — the pivotal negative result
@@ -206,7 +211,7 @@ fixed compute budget, one capable model can beat several mediocre ones.**
 | **Multi-LLM consensus** | **6 / 9** | **0.667** |
 
 A pair counts as discriminated only when the strategy flags the vulnerable member **and** clears
-the patched one, and it penalises both misses and false alarms.
+the patched one — strict, and it penalises both misses and false alarms.
 
 SAST fares badly because its rules fire on the *fix* as readily as the flaw: the surface syntax
 barely changes between a concatenated query and its parameterised version. The consensus,
