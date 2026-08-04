@@ -1,8 +1,8 @@
 # VERDICT — Project Context for AI Assistants
 
 **Project name:** VERDICT (Vulnerability Evaluation by Reasoning, Consensus, Integration, and Detection Tiers)
-**Type:** MSc Data Science & AI dissertation — University of Leeds
-**Author:** Pranit Chatzimitheas (pranitchatz@gmail.com)
+**Type:** MSc Data Science & AI dissertation — Newcastle University
+**Author:** Pranit Chatterjee (P.Chatterjee2@newcastle.ac.uk)
 **Deadlines:** Poster 29 July 2026 · Dissertation 10 August 2026
 **Repo:** https://github.com/Pranit-NCU/Agent_Security_Detector (branch: `feat/experiment-runners-a-f`)
 
