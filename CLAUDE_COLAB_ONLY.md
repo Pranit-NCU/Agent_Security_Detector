@@ -1,8 +1,8 @@
 # VERDICT — Project Context for AI Assistants (Colab-Only Edition)
 
 **Project name:** VERDICT (Vulnerability Evaluation by Reasoning, Consensus, Integration, and Detection Tiers)
-**Type:** MSc Data Science & AI dissertation — University of Leeds
-**Author:** Pranit Chatterjee (pranitchatz@gmail.com)
+**Type:** MSc Data Science & AI dissertation — Newcastle University
+**Author:** Pranit Chatterjee (P.chatterjee2@newcastle.ac.uk)
 **Deadlines:** Poster 29 July 2026 · Dissertation 10 August 2026
 **Canonical artifact:** a single Google Colab notebook. There is no live GitHub dependency during execution — the notebook is self-contained from mount to final figure. After a successful run, the finished notebook (with all tables/charts already rendered as cell outputs) is manually added to `https://github.com/Pranit-NCU/Agent_Security_Detector` as a dated archival snapshot.
 
